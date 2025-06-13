@@ -31,6 +31,7 @@
         <header class="my-8">
             <h1 class="main-title">غزة</h1>
         </header>
+
         <div class="space-y-16">
              <section id="analysis">
                 <div class="content-card">
@@ -85,18 +86,8 @@
         </div>
         <footer class="text-center py-10 mt-16"><p class="text-stone-500 text-sm">تم تجميع هذا العرض بناءً على مصادر إعلامية وتقارير حقوقية متاحة للعموم.</p></footer>
     </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const supabaseUrl = 'https://xhvpwcucmrxcxfsmffqs.supabase.co'; 
-            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhodnB3Y3VjbXJ4Y3hmc21mZnFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNDk0MTIsImV4cCI6MjAzMzkyNTQxMn0.JpYJhbgGcI0I3OlU1ZWI5cCI6IkpVCJ9';
-            if (typeof supabase === 'undefined') {
-                console.error('Supabase client not loaded.');
-                return;
-            }
-            const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-
+        document.addEventListener('DOMContentLoaded', async function () {
             const commentForm = document.getElementById('comment-form');
             const commentsContainer = document.getElementById('comments-container');
             
@@ -115,14 +106,17 @@
             }
 
             async function loadComments() {
-                const { data, error } = await supabaseClient.from('comments').select('*').order('created_at', { ascending: false });
-                if (error) {
-                    console.error('Error fetching comments:', error);
+                try {
+                    const response = await fetch('/api/get-comments');
+                    const result = await response.json();
+                    if (!response.ok) throw new Error(result.error || 'Failed to fetch comments');
+                    
+                    commentsContainer.innerHTML = ''; 
+                    result.comments.forEach(comment => addCommentToDOM(comment.name, comment.text));
+                } catch (error) {
+                    console.error('Error loading comments:', error);
                     alert('حدث خطأ أثناء تحميل التعليقات.');
-                    return;
                 }
-                commentsContainer.innerHTML = ''; 
-                data.forEach(comment => addCommentToDOM(comment.name, comment.text));
             }
 
             commentForm.addEventListener('submit', async function(event) {
@@ -156,7 +150,7 @@
                 }
             });
             
-            loadComments();
+            await loadComments();
         });
     </script>
 </body>
