@@ -1,27 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
     // --- SUPABASE CLIENT SETUP ---
-    //  !!! استبدل هذه القيم بالقيم الخاصة بك من إعدادات مشروع Supabase
-    const supabaseUrl = 'https://xhvpwcuemxrcxfsmffqs.supabase.co'; // الصق رابط المشروع هنا
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhodnB3Y3VlbXhyY3hmc21mZnFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4MjUxMzksImV4cCI6MjA2NTQwMTEzOX0.NuBvEfmZSMITAFsusfAYh1jI8Q99rEhssTQ2lD-BFcg'; // الصق مفتاح anon public هنا
+    // تم وضع المفاتيح الخاصة بك التي نسختها من Supabase
+    const supabaseUrl = 'https://xhvpwcucmrxcxfsmffqs.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhodnB3Y3VjbXJ4Y3hmc21mZnFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNDk0MTIsImV4cCI6MjAzMzkyNTQxMn0.JpYJhbgGcI0I3OlU1ZWI5cCI6IkpXVCJ9';
 
     const supabase = supabase.createClient(supabaseUrl, supabaseKey);
     console.log('Supabase client initialized');
 
-    // --- ANIMATIONS AND UI ---
-    // On-scroll fade-in animation
-    const fadeElements = document.querySelectorAll('.fade-in-section');
-    const scrollObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    fadeElements.forEach(el => scrollObserver.observe(el));
+    // --- UI SETUP ---
+    // جعل كل الأقسام مرئية بشكل مباشر عند التحميل
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.style.opacity = '1';
+        section.style.transform = 'translateY(0)';
+    });
+
 
     // Scrollspy for nav links
-    const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
     const navObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -179,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to add a comment element to the page
     function addCommentToDOM(name, text) {
         const commentDiv = document.createElement('div');
-        commentDiv.className = 'p-4 bg-stone-50 rounded-lg border border-stone-200 transition-opacity duration-500 opacity-0';
+        commentDiv.className = 'p-4 bg-stone-50 rounded-lg border border-stone-200';
         
         const nameElement = document.createElement('h4');
         nameElement.className = 'font-bold text-stone-800';
@@ -192,11 +187,6 @@ document.addEventListener('DOMContentLoaded', function () {
         commentDiv.appendChild(nameElement);
         commentDiv.appendChild(textElement);
         commentsContainer.prepend(commentDiv);
-        
-        // Trigger the fade-in animation
-        setTimeout(() => {
-            commentDiv.style.opacity = '1';
-        }, 10);
     }
 
     // Initial load of comments when the page loads
