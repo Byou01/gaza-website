@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غزة</title>
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="text-stone-700">
+    <header class="bg-white/90 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <nav class="container max-w-5xl mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-extrabold text-stone-800">غزة</h1>
+            <div class="hidden md:flex items-center space-x-6 space-x-reverse">
+                <a href="#analysis" class="nav-link text-stone-600">التحليل</a>
+                <a href="#debate" class="nav-link text-stone-600">نقاش</a>
+                <a href="#positions" class="nav-link text-stone-600">المواقف</a>
+                <a href="#qa" class="nav-link text-stone-600">✨ اسأل AI</a>
+                <a href="#comments" class="nav-link text-stone-600">التعليقات</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container max-w-4xl mx-auto p-4 md:p-8">
+
+        <div class="space-y-16">
+
+            <section id="analysis" class="scroll-mt-24">
+                <div class="content-card fade-in-section">
+                    <div class="flex flex-wrap justify-between items-center gap-4 mb-4">
+                        <h2 class="section-title !mb-0 !border-0 flex-grow">تحليل استراتيجي للتحديات</h2>
+                        <div id="dialect-options" class="flex flex-wrap gap-2">
+                            <button class="dialect-button active" data-dialect="formal">الفصحى</button>
+                            <button class="dialect-button" data-dialect="egyptian">المصرية</button>
+                            <button class="dialect-button" data-dialect="saudi">السعودية</button>
+                            <button class="dialect-button" data-dialect="algerian">الجزائرية</button>
+                            <button class="dialect-button" data-dialect="tunisian">التونسية</button>
+                        </div>
+                    </div>
+                    <div id="analysis-loader" class="mx-auto my-4 hidden loader"></div>
+                    <p id="analysis-text" class="text-stone-600 leading-relaxed text-lg">يتطلب تقييم فعالية المبادرات الشعبية، سواء كانت برية أو بحرية، النظر في عوامل واقعية تتجاوز الهدف المعلن لكسر الحصار. فمن ناحية، تشكل التحركات غير المنسقة لأعداد كبيرة تحدياً سيادياً وأمنياً للدول المجاورة، خاصة في مناطق حدودية حساسة. كما أن إدخال تجمعات مدنية إلى منطقة عمليات عسكرية يرفع من احتمالية التصعيد، حيث يمكن استغلال أي حادث لتوسيع نطاق العمليات. الأهم من ذلك، أن العقبة الحقيقية أمام وصول المساعدات غالباً ما تكون لوجستية وأمنية، وتتعلق بآليات التفتيش والتوزيع المعطلة، وهي تحديات لا تعالجها القوافل البشرية بشكل مباشر.</p>
+                </div>
+            </section>
+
+             <section id="debate" class="scroll-mt-24">
+                <div class="content-card fade-in-section">
+                    <h2 class="section-title">نقاش حول جدوى القوافل البرية</h2>
+                    <div class="space-y-8">
+                        <div class="debate-card border-stone-400">
+                            <h3 class="font-bold text-stone-800">وجهة النظر المتشككة (مثال: محمود)</h3>
+                            <p class="mt-1 leading-relaxed">"ما فائدة الذهاب إلى معبر رفح؟ المصريون أنفسهم تظاهروا هناك ولم يتغير شيء. هذه القوافل تأتي بدون مساعدات أو أي شيء ملموس، والهدف هو فقط توريط مصر في مشكلة وإظهارها بمظهر المخطئ. إسرائيل لن تسمح لهم بالدخول وستقصفهم، ثم ستُلام مصر على ذلك."</p>
+                        </div>
+                        <div class="debate-card border-green-700">
+                             <h3 class="font-bold text-green-800">وجهة النظر المتفائلة (مثال: ياسين)</h3>
+                             <p class="mt-1 leading-relaxed">"الهدف ليس حمل المساعدات، بل كسر الحصار للسماح بمرور المساعدات المتوقفة بالفعل عند المعبر. كما أن هذه ليست مجرد قافلة، بل جزء من "المسيرة العالمية إلى غزة" التي تضم آلاف النشطاء من عشرات الجنسيات المختلفة، بما في ذلك جنسيات غربية. هذا الحضور الدولي يجعل أي استهداف إسرائيلي لهم بمثابة هجوم على دول متعددة، مما يغير الحسابات السياسية."</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-stone-200">
+                        <h3 class="font-bold text-stone-800 mb-4">أدلة داعمة لوجهة النظر الثانية:</h3>
+                        <div class="grid md:grid-cols-2 gap-6 items-center">
+                            <div>
+                                <p class="leading-relaxed">توضح المواد الإعلامية للمسيرة العالمية إلى غزة (#GlobalMarchToGaza) أن الهدف هو حشد آلاف النشطاء من أكثر من 54 دولة، والذين يصلون عبر الطيران إلى القاهرة للانضمام إلى مسيرة من العريش إلى رفح. هذا يؤكد فكرة أن التحرك ليس مقتصراً على "قافلة الصمود" القادمة من شمال أفريقيا فقط.</p>
+                                <a href="https://www.aljazeera.com/news/2025/6/12/egypt-deports-dozens-of-activists-before-planned-march-to-gaza-border" target="_blank" class="text-stone-500 hover:text-stone-800 transition-colors mt-2 inline-block">رابط لمصدر إخباري حول المسيرة العالمية (مثال) &rarr;</a>
+                            </div>
+                            <img src="https://i.ibb.co/hK7Jq4V/image-d5b9da.jpg" alt="خريطة المسيرة العالمية إلى غزة" class="rounded-lg shadow-md w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="gemini-summary" class="scroll-mt-24">
+                <div class="content-card text-center fade-in-section">
+                     <h2 class="section-title">✨ ملخص بالذكاء الاصطناعي</h2>
+                     <p class="mb-6 text-lg">للحصول على ملخص محايد وموضوعي للوضع، تم إنشاؤه بواسطة نموذج Gemini للذكاء الاصطناعي، اضغط على الزر أدناه.</p>
+                     <button id="generate-summary-button" class="gemini-button">توليد ملخص</button>
+                     <div id="summary-loader" class="mx-auto my-4 hidden loader"></div>
+                     <div id="summary-output" class="mt-6 p-4 bg-stone-100 rounded-lg text-right hidden text-lg"></div>
+                 </div>
+            </section>
+
+            <section id="positions" class="scroll-mt-24">
+                <div class="content-card fade-in-section">
+                    <h2 class="section-title">مواقف الأطراف الرئيسية</h2>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                        <div><h3 class="text-lg font-bold text-stone-800">إسرائيل</h3><p class="leading-relaxed">تعتبر الحصار ضرورياً لأمنها وتصف المبادرات بأنها استفزازية.</p></div>
+                        <div><h3 class="text-lg font-bold text-stone-800">حركة حماس</h3><p class="leading-relaxed">تدين الاعتراضات وتعتبرها قرصنة، وتدعو لتوفير الحماية الدولية للمبادرات.</p></div>
+                        <div><h3 class="text-lg font-bold text-stone-800">الولايات المتحدة</h3><p class="leading-relaxed">تدعو لاستخدام القنوات المعتمدة للمساعدات، وتتجنب انتقاد الإجراءات الإسرائيلية.</p></div>
+                        <div><h3 class="text-lg font-bold text-stone-800">مصر</h3><p class="leading-relaxed">تشدد على ضرورة الحصول على موافقات رسمية لدخول أراضيها لدواعٍ تتعلق بالأمن القومي.</p></div>
+                        <div class="md:col-span-2"><h3 class="text-lg font-bold text-stone-800">الأردن ودول المغرب العربي</h3><p class="leading-relaxed">يوجد دعم شعبي واسع للقوافل، بينما تتخذ الأردن مساراً مؤسسياً رسمياً لإيصال المساعدات.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="qa" class="scroll-mt-24">
+                <div class="content-card fade-in-section">
+                    <h2 class="section-title">✨ اسأل المحلل</h2>
+                     <p class="mb-6 text-lg text-center">هل لديك سؤال حول محتوى هذه الصفحة؟ اطرحه هنا وسيجيبك الذكاء الاصطناعي.</p>
+                    <div class="space-y-4">
+                        <textarea id="qa-input" rows="3" class="w-full px-3 py-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-500" placeholder="اكتب سؤالك هنا..."></textarea>
+                        <button id="qa-button" class="gemini-button">إرسال السؤال</button>
+                    </div>
+                     <div id="qa-loader" class="mx-auto my-4 hidden loader"></div>
+                     <div id="qa-output" class="mt-6 p-4 bg-stone-100 rounded-lg text-right hidden text-lg"></div>
+                </div>
+            </section>
+
+             <section id="comments" class="scroll-mt-24">
+                <div class="content-card fade-in-section">
+                    <h2 class="section-title">شارك برأيك</h2>
+                    <form id="comment-form" class="space-y-4">
+                        <div>
+                            <label for="comment-name" class="block text-sm font-bold text-stone-700 mb-1">الاسم</label>
+                            <input type="text" id="comment-name" name="name" class="w-full px-3 py-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-500" required>
+                        </div>
+                        <div>
+                            <label for="comment-text" class="block text-sm font-bold text-stone-700 mb-1">التعليق</label>
+                            <textarea id="comment-text" name="comment" rows="4" class="w-full px-3 py-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-500" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="gemini-button">إضافة تعليق</button>
+                        </div>
+                    </form>
+                    <div id="comments-container" class="mt-8 space-y-6">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="text-center py-10 mt-16">
+            <p class="text-stone-500 text-sm">تم تجميع هذا العرض بناءً على مصادر إعلامية وتقارير حقوقية متاحة للعموم.</p>
+        </footer>
+
+    </main>
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
