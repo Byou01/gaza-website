@@ -6,12 +6,57 @@
     <title>غزة</title>
     <!-- Tailwind CSS Script -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Your CSS File -->
-    <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* All CSS is now inside the HTML file */
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f5f5f4; /* stone-100 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .main-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #292524;
+            text-align: center;
+            padding: 4rem 1rem 2rem 1rem;
+        }
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #292524;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #a8a29e;
+            padding-bottom: 0.75rem;
+        }
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2.5rem;
+            border: 1px solid #e7e5e4;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .debate-card {
+            border-right: 3px solid;
+            padding-right: 1.5rem;
+        }
+        .submit-button {
+            background-color: #57534e;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #292524;
+        }
+    </style>
 </head>
 <body class="text-stone-700">
     <main class="container max-w-4xl mx-auto p-4 md:p-8">
@@ -69,7 +114,7 @@
                             <textarea id="comment-text" name="comment" rows="4" class="w-full px-3 py-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-500" required></textarea>
                         </div>
                         <div>
-                            <button type="submit" class="gemini-button">إضافة تعليق</button>
+                            <button type="submit" class="submit-button">إضافة تعليق</button>
                         </div>
                     </form>
                     <div id="comments-container" class="mt-8 space-y-6">
@@ -85,7 +130,104 @@
 
     <!-- Supabase Client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <!-- Your JavaScript File -->
-    <script src="script.js"></script>
+    
+    <!-- Your JavaScript is now inside the HTML file -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- SUPABASE CLIENT SETUP ---
+            const supabaseUrl = 'https://xhvpwcucmrxcxfsmffqs.supabase.co'; 
+            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhodnB3Y3VjbXJ4Y3hmc21mZnFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNDk0MTIsImV4cCI6MjAzMzkyNTQxMn0.JpYJhbgGcI0I3OlU1ZWI5cCI6IkpVCJ9';
+
+            // Check if supabase object exists from CDN
+            if (typeof supabase === 'undefined') {
+                console.error('Supabase client library not loaded. Check the script tag.');
+                return;
+            }
+            const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+            // --- COMMENTS SECTION FUNCTIONALITY ---
+            const commentForm = document.getElementById('comment-form');
+            const commentsContainer = document.getElementById('comments-container');
+            
+            function addCommentToDOM(name, text) {
+                const commentDiv = document.createElement('div');
+                commentDiv.className = 'p-4 bg-stone-50 rounded-lg border border-stone-200';
+                
+                const nameElement = document.createElement('h4');
+                nameElement.className = 'font-bold text-stone-800';
+                nameElement.textContent = name;
+
+                const textElement = document.createElement('p');
+                textElement.className = 'text-stone-600 mt-1';
+                textElement.textContent = text;
+                
+                commentDiv.appendChild(nameElement);
+                commentDiv.appendChild(textElement);
+                commentsContainer.prepend(commentDiv);
+            }
+
+            async function loadComments() {
+                const { data, error } = await supabaseClient
+                    .from('comments')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) {
+                    console.error('Error fetching comments:', error);
+                    alert('حدث خطأ أثناء تحميل التعليقات.');
+                    return;
+                }
+
+                commentsContainer.innerHTML = ''; 
+                data.forEach(comment => {
+                    addCommentToDOM(comment.name, comment.text);
+                });
+            }
+
+            commentForm.addEventListener('submit', async function(event) {
+                event.preventDefault(); // This is crucial to prevent page reload
+
+                const nameInput = document.getElementById('comment-name');
+                const commentInput = document.getElementById('comment-text');
+                const submitButton = commentForm.querySelector('button[type="submit"]');
+                
+                const name = nameInput.value.trim();
+                const text = commentInput.value.trim();
+
+                if (name && text) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'جاري الإضافة...';
+
+                    // We are now submitting to our own serverless function
+                    try {
+                        const response = await fetch('/api/add-comment', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name, text }),
+                        });
+
+                        const result = await response.json();
+
+                        if (!response.ok) {
+                            throw new Error(result.message || 'Failed to add comment');
+                        }
+                        
+                        addCommentToDOM(result.comment.name, result.comment.text);
+                        nameInput.value = '';
+                        commentInput.value = '';
+
+                    } catch (error) {
+                        console.error('Error submitting comment:', error);
+                        alert('حدث خطأ: ' + error.message);
+                    }
+
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'إضافة تعليق';
+                }
+            });
+            
+            loadComments();
+        });
+    </script>
 </body>
 </html>
