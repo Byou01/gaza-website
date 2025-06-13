@@ -1,41 +1,46 @@
-// هذا الملف يعمل على خادم Vercel كوسيط آمن
-import { createClient } from '@supabase/supabase-js';
+const { createClient } = require('@supabase/supabase-js');
 
-export default async function handler(request, response) {
-    // التأكد من أن الطلب هو من نوع POST
+module.exports = async (request, response) => {
+    // 1. Only allow POST requests
     if (request.method !== 'POST') {
-        return response.status(405).json({ message: 'Method Not Allowed' });
-    }
-
-    const supabaseUrl = process.env.SUPABASE_URL;
-    const supabaseKey = process.env.SUPABASE_SERVICE_KEY; // استخدام المفتاح السري هنا
-
-    // التحقق من وجود المفاتيح
-    if (!supabaseUrl || !supabaseKey) {
-        return response.status(500).json({ message: 'Supabase credentials are not configured.' });
-    }
-
-    const supabase = createClient(supabaseUrl, supabaseKey);
-    const { name, text } = request.body;
-
-    // التحقق من وجود الاسم والنص
-    if (!name || !text) {
-        return response.status(400).json({ message: 'Name and text are required.' });
+        return response.status(405).json({ error: 'Method Not Allowed' });
     }
 
     try {
+        // 2. Get Supabase credentials from Vercel Environment Variables
+        const supabaseUrl = process.env.SUPABASE_URL;
+        const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
+
+        if (!supabaseUrl || !supabaseKey) {
+            return response.status(500).json({ error: 'Supabase credentials are not configured.' });
+        }
+
+        // 3. Initialize Supabase client with the secret key
+        const supabase = createClient(supabaseUrl, supabaseKey);
+        
+        // 4. Get name and text from the request body
+        const { name, text } = request.body;
+        if (!name || !text) {
+            return response.status(400).json({ error: 'Name and text are required.' });
+        }
+
+        // 5. Insert the new comment into the database
         const { data, error } = await supabase
             .from('comments')
             .insert([{ name, text }])
-            .select();
+            .select()
+            .single(); // Use .single() to get a single object back
 
         if (error) {
-            throw error;
+            throw error; // Let the catch block handle it
         }
 
-        return response.status(200).json({ message: 'Comment added successfully', comment: data[0] });
+        // 6. Send a success response with the new comment data
+        return response.status(200).json({ comment: data });
 
     } catch (error) {
-        return response.status(500).json({ message: 'Error saving comment', error: error.message });
+        // 7. Handle any errors that occurred
+        console.error('Serverless Function Error:', error);
+        return response.status(500).json({ error: error.message });
     }
-}
+};
