@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     // --- SUPABASE CLIENT SETUP ---
     //  !!! استبدل هذه القيم بالقيم الخاصة بك من إعدادات مشروع Supabase
-    const supabaseUrl = 'YOUR_SUPABASE_URL'; // الصق رابط المشروع هنا
-    const supabaseKey = 'YOUR_SUPABASE_KEY'; // الصق مفتاح anon public هنا
+    const supabaseUrl = 'https://xhvpwcuemxrcxfsmffqs.supabase.co'; // الصق رابط المشروع هنا
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhodnB3Y3VlbXhyY3hmc21mZnFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4MjUxMzksImV4cCI6MjA2NTQwMTEzOX0.NuBvEfmZSMITAFsusfAYh1jI8Q99rEhssTQ2lD-BFcg'; // الصق مفتاح anon public هنا
 
     const supabase = supabase.createClient(supabaseUrl, supabaseKey);
     console.log('Supabase client initialized');
