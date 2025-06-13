@@ -3,7 +3,9 @@
 const supabaseUrl = 'https://xhvpwcucmrxcxfsmffqs.supabase.co'; 
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhodnB3Y3VjbXJ4Y3hmc21mZnFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNDk0MTIsImV4cCI6MjAzMzkyNTQxMn0.JpYJhbgGcI0I3OlU1ZWI5cCI6IkpXVCJ9';
 
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+// إصلاح الخطأ: استخدم متغيراً جديداً للعميل لتجنب التعارض
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
 
 // --- MAIN LOGIC WRAPPER ---
 document.addEventListener('DOMContentLoaded', function () {
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to fetch and display comments from the database
     async function loadComments() {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('comments')
             .select('*')
             .order('created_at', { ascending: false });
@@ -64,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
             submitButton.disabled = true;
             submitButton.textContent = 'جاري الإضافة...';
 
-            const { data, error } = await supabase
+            const { data, error } = await supabaseClient
                 .from('comments')
                 .insert([{ name: name, text: commentText }])
                 .select();
@@ -73,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Error saving comment:', error.message);
                 alert('حدث خطأ أثناء حفظ التعليق: ' + error.message);
             } else {
+                // إضافة التعليق الجديد مباشرة إلى الأعلى بدون إعادة تحميل كل التعليقات
                 addCommentToDOM(data[0].name, data[0].text);
                 nameInput.value = '';
                 commentInput.value = '';
