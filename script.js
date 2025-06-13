@@ -1,22 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
     // --- SUPABASE CLIENT SETUP ---
-    // تم وضع المفاتيح الخاصة بك التي نسختها من Supabase
-    const supabaseUrl = 'https://xhvpwcucmrxcxfsmffqs.supabase.co';
+    const supabaseUrl = 'https://xhvpwcucmrxcxfsmffqs.supabase.co'; 
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhodnB3Y3VjbXJ4Y3hmc21mZnFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNDk0MTIsImV4cCI6MjAzMzkyNTQxMn0.JpYJhbgGcI0I3OlU1ZWI5cCI6IkpXVCJ9';
 
     const supabase = supabase.createClient(supabaseUrl, supabaseKey);
     console.log('Supabase client initialized');
 
     // --- UI SETUP ---
-    // جعل كل الأقسام مرئية بشكل مباشر عند التحميل
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.style.opacity = '1';
-        section.style.transform = 'translateY(0)';
-    });
-
-
     // Scrollspy for nav links
+    const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
     const navObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -31,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- GEMINI API FUNCTIONALITY ---
     async function callGemini(prompt) {
-        const apiKey = ""; // اترك هذا الحقل فارغاً
+        const apiKey = ""; 
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
         const payload = { contents: [{ parts: [{ text: prompt }] }] };
         try {
@@ -127,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const commentForm = document.getElementById('comment-form');
     const commentsContainer = document.getElementById('comments-container');
 
-    // Function to fetch and display comments from the database
     async function loadComments() {
         const { data, error } = await supabase
             .from('comments')
@@ -139,23 +130,20 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        commentsContainer.innerHTML = ''; // Clear existing comments
+        commentsContainer.innerHTML = '';
         data.forEach(comment => {
             addCommentToDOM(comment.name, comment.text);
         });
     }
 
-    // Function to handle form submission
     commentForm.addEventListener('submit', async function(event) {
         event.preventDefault();
-
         const nameInput = document.getElementById('comment-name');
         const commentInput = document.getElementById('comment-text');
         const name = nameInput.value.trim();
         const commentText = commentInput.value.trim();
 
         if (name && commentText) {
-            // Insert the new comment into the database
             const { error } = await supabase
                 .from('comments')
                 .insert([{ name: name, text: commentText }]);
@@ -163,7 +151,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (error) {
                 console.error('Error saving comment:', error);
             } else {
-                // If successful, add it to the top of the list and clear the form
                 addCommentToDOM(name, commentText);
                 nameInput.value = '';
                 commentInput.value = '';
@@ -171,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Function to add a comment element to the page
     function addCommentToDOM(name, text) {
         const commentDiv = document.createElement('div');
         commentDiv.className = 'p-4 bg-stone-50 rounded-lg border border-stone-200';
@@ -189,6 +175,5 @@ document.addEventListener('DOMContentLoaded', function () {
         commentsContainer.prepend(commentDiv);
     }
 
-    // Initial load of comments when the page loads
     loadComments();
 });
