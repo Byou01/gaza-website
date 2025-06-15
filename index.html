@@ -4,154 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>غزة</title>
-    <!-- Tailwind CSS Script -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #f5f5f4;
+            background-color: #f8fafc;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        .main-title { font-size: 3rem; font-weight: 800; color: #292524; text-align: center; padding: 4rem 1rem 2rem 1rem; }
-        .section-title { font-size: 1.875rem; font-weight: 700; color: #292524; margin-bottom: 2rem; border-bottom: 2px solid #a8a29e; padding-bottom: 0.75rem; }
-        .content-card { background-color: rgba(255, 255, 255, 0.92); backdrop-filter: blur(10px); border-radius: 12px; padding: 2.5rem; border: 1px solid #e7e5e4; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .debate-card { border-right: 3px solid; padding-right: 1.5rem; }
-        .submit-button { background-color: #57534e; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; transition: background-color 0.3s; }
-        .submit-button:hover { background-color: #292524; }
-        .submit-button:disabled { background-color: #a8a29e; cursor: not-allowed; }
+        .main-title { font-size: 3.75rem; font-weight: 800; color: #1e293b; text-align: center; padding: 4rem 1rem 2rem 1rem; }
+        .section-title { font-size: 1.875rem; font-weight: 700; color: #1e293b; margin-bottom: 2.5rem; border-bottom: 3px solid #64748b; padding-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+        .content-card { background-color: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05); }
+        .debate-card { padding: 1.5rem; border-radius: 12px; }
+        .icon { width: 2rem; height: 2rem; color: #475569; }
+        .nav-link { font-weight: 600; color: #475569; transition: color 0.2s; }
+        .nav-link:hover { color: #1e293b; }
+        .nav-link.active { color: #1e293b; font-weight: 700; border-bottom: 2px solid #1e293b; padding-bottom: 4px;}
     </style>
 </head>
-<body class="text-stone-700">
+<body class="text-slate-700">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-extrabold text-slate-800">تحليلات إقليمية</h1>
+            <div class="flex items-center space-x-6 space-x-reverse">
+                <a href="index.html" class="nav-link active">غزة</a>
+                <a href="iran-israel.html" class="nav-link">الصراع الإيراني الإسرائيلي</a>
+            </div>
+        </nav>
+    </header>
+
     <main class="container max-w-4xl mx-auto p-4 md:p-8">
         <header class="my-8">
             <h1 class="main-title">غزة</h1>
         </header>
 
         <div class="space-y-16">
-             <section id="analysis">
+            <section id="analysis">
                 <div class="content-card">
-                    <h2 class="section-title">تحليل استراتيجي للتحديات</h2>
-                    <p class="text-stone-600 leading-relaxed text-lg">يتطلب تقييم فعالية المبادرات الشعبية، سواء كانت برية أو بحرية، النظر في عوامل واقعية تتجاوز الهدف المعلن لكسر الحصار. فمن ناحية، تشكل التحركات غير المنسقة لأعداد كبيرة تحدياً سيادياً وأمنياً للدول المجاورة، خاصة في مناطق حدودية حساسة. كما أن إدخال تجمعات مدنية إلى منطقة عمليات عسكرية يرفع من احتمالية التصعيد، حيث يمكن استغلال أي حادث لتوسيع نطاق العمليات. الأهم من ذلك، أن العقبة الحقيقية أمام وصول المساعدات غالباً ما تكون لوجستية وأمنية، وتتعلق بآليات التفتيش والتوزيع المعطلة، وهي تحديات لا تعالجها القوافل البشرية بشكل مباشر.</p>
+                    <h2 class="section-title">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.311a7.5 7.5 0 0 1-7.5 0c-1.453 0-2.824.22-4.121.622M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm-5.25 9.375a3.375 3.375 0 0 1 6.75 0Zm10.5 0a3.375 3.375 0 0 1 6.75 0Z" /></svg>
+                        تحليل استراتيجي للتحديات
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-lg">يتطلب تقييم فعالية المبادرات الشعبية، سواء كانت برية أو بحرية، النظر في عوامل واقعية تتجاوز الهدف المعلن لكسر الحصار. فمن ناحية، تشكل التحركات غير المنسقة لأعداد كبيرة تحدياً سيادياً وأمنياً للدول المجاورة، خاصة في مناطق حدودية حساسة. كما أن إدخال تجمعات مدنية إلى منطقة عمليات عسكرية يرفع من احتمالية التصعيد، حيث يمكن استغلال أي حادث لتوسيع نطاق العمليات. الأهم من ذلك، أن العقبة الحقيقية أمام وصول المساعدات غالباً ما تكون لوجستية وأمنية، وتتعلق بآليات التفتيش والتوزيع المعطلة، وهي تحديات لا تعالجها القوافل البشرية بشكل مباشر.</p>
                 </div>
             </section>
-             <section id="debate">
+
+            <section id="debate">
                 <div class="content-card">
-                    <h2 class="section-title">نقاش حول جدوى القوافل البرية</h2>
-                    <div class="space-y-8">
-                        <div class="debate-card border-stone-400">
-                            <h3 class="font-bold text-stone-800">وجهة النظر المتشككة</h3>
-                            <p class="mt-1 leading-relaxed">"ما فائدة الذهاب إلى معبر رفح؟ هذه القوافل تأتي بدون مساعدات ملموسة، والهدف هو فقط توريط مصر في مشكلة. إسرائيل لن تسمح لهم بالدخول وستقصفهم، ثم ستُلام مصر."</p>
+                    <h2 class="section-title">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 12.75h7.5m-7.5 3h7.5m-7.5 3h7.5m3-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.75 18.75a.75.75 0 0 0 0-1.5.75.75 0 0 0 0 1.5Zm9.75-1.5a.75.75 0 0 0 0 1.5.75.75 0 0 0 0-1.5Z" /></svg>
+                        نقاش حول جدوى القوافل البرية
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="debate-card bg-slate-100">
+                            <h3 class="font-bold text-slate-800">وجهة النظر المتشككة</h3>
+                            <p class="mt-2 leading-relaxed">"ما فائدة الذهاب إلى معبر رفح؟ هذه القوافل تأتي بدون مساعدات ملموسة، والهدف هو فقط توريط مصر في مشكلة. إسرائيل لن تسمح لهم بالدخول وستقصفهم، ثم ستُلام مصر."</p>
                         </div>
-                        <div class="debate-card border-green-700">
-                             <h3 class="font-bold text-green-800">وجهة النظر المتفائلة</h3>
-                             <p class="mt-1 leading-relaxed">"الهدف ليس حمل المساعدات، بل كسر الحصار للسماح بمرور المساعدات المتوقفة. الحضور الدولي يجعل أي استهداف إسرائيلي لهم بمثابة هجوم على دول متعددة، مما يغير الحسابات السياسية."</p>
+                        <div class="debate-card bg-green-50 text-green-900">
+                             <h3 class="font-bold">وجهة النظر المتفائلة</h3>
+                             <p class="mt-2 leading-relaxed">"الهدف ليس حمل المساعدات، بل كسر الحصار للسماح بمرور المساعدات المتوقفة. الحضور الدولي يجعل أي استهداف إسرائيلي لهم بمثابة هجوم على دول متعددة، مما يغير الحسابات السياسية."</p>
                         </div>
                     </div>
                 </div>
             </section>
+            
             <section id="positions">
                 <div class="content-card">
-                    <h2 class="section-title">مواقف الأطراف الرئيسية</h2>
+                    <h2 class="section-title">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12A2.25 2.25 0 0 0 20.25 14.25V3M3.75 21h16.5M12 3v13.5" /></svg>
+                        مواقف الأطراف الرئيسية
+                    </h2>
                      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                        <div><h3 class="text-lg font-bold text-stone-800">إسرائيل</h3><p>تعتبر الحصار ضرورياً لأمنها وتصف المبادرات بأنها استفزازية.</p></div>
-                        <div><h3 class="text-lg font-bold text-stone-800">حركة حماس</h3><p>تدين الاعتراضات وتعتبرها قرصنة، وتدعو لتوفير الحماية للمبادرات.</p></div>
-                        <div><h3 class="text-lg font-bold text-stone-800">الولايات المتحدة</h3><p>تدعو لاستخدام القنوات المعتمدة للمساعدات، وتتجنب انتقاد إسرائيل.</p></div>
-                        <div><h3 class="text-lg font-bold text-stone-800">مصر</h3><p>تشدد على ضرورة الحصول على موافقات رسمية لدخول أراضيها.</p></div>
-                        <div class="md:col-span-2"><h3 class="text-lg font-bold text-stone-800">الأردن ودول المغرب العربي</h3><p>يوجد دعم شعبي واسع للقوافل، بينما تتخذ الأردن مساراً مؤسسياً.</p></div>
+                        <div><h3 class="text-lg font-bold text-slate-800">إسرائيل</h3><p>تعتبر الحصار ضرورياً لأمنها وتصف المبادرات بأنها استفزازية.</p></div>
+                        <div><h3 class="text-lg font-bold text-slate-800">حركة حماس</h3><p>تدين الاعتراضات وتعتبرها قرصنة، وتدعو لتوفير الحماية للمبادرات.</p></div>
+                        <div><h3 class="text-lg font-bold text-slate-800">الولايات المتحدة</h3><p>تدعو لاستخدام القنوات المعتمدة للمساعدات، وتتجنب انتقاد إسرائيل.</p></div>
+                        <div><h3 class="text-lg font-bold text-slate-800">مصر</h3><p>تشدد على ضرورة الحصول على موافقات رسمية لدخول أراضيها.</p></div>
+                        <div class="md:col-span-2"><h3 class="text-lg font-bold text-slate-800">الأردن ودول المغرب العربي</h3><p>يوجد دعم شعبي واسع للقوافل، بينما تتخذ الأردن مساراً مؤسسياً.</p></div>
                     </div>
-                </div>
-            </section>
-             <section id="comments">
-                <div class="content-card">
-                    <h2 class="section-title">شارك برأيك</h2>
-                    <form id="comment-form" class="space-y-4">
-                        <div>
-                            <label for="comment-name" class="block text-sm font-bold text-stone-700 mb-1">الاسم</label>
-                            <input type="text" id="comment-name" name="name" class="w-full px-3 py-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-500" required>
-                        </div>
-                        <div>
-                            <label for="comment-text" class="block text-sm font-bold text-stone-700 mb-1">التعليق</label>
-                            <textarea id="comment-text" name="comment" rows="4" class="w-full px-3 py-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-500" required></textarea>
-                        </div>
-                        <div><button type="submit" class="submit-button">إضافة تعليق</button></div>
-                    </form>
-                    <div id="comments-container" class="mt-8 space-y-6"></div>
                 </div>
             </section>
         </div>
-        <footer class="text-center py-10 mt-16"><p class="text-stone-500 text-sm">تم تجميع هذا العرض بناءً على مصادر إعلامية وتقارير حقوقية متاحة للعموم.</p></footer>
+
+        <footer class="text-center py-16 mt-16">
+            <p class="text-slate-500 text-sm">تم تجميع هذا العرض بناءً على مصادر إعلامية وتقارير حقوقية متاحة للعموم.</p>
+        </footer>
     </main>
-    <script>
-        document.addEventListener('DOMContentLoaded', async function () {
-            const commentForm = document.getElementById('comment-form');
-            const commentsContainer = document.getElementById('comments-container');
-            
-            function addCommentToDOM(name, text) {
-                const commentDiv = document.createElement('div');
-                commentDiv.className = 'p-4 bg-stone-50 rounded-lg border border-stone-200';
-                const nameElement = document.createElement('h4');
-                nameElement.className = 'font-bold text-stone-800';
-                nameElement.textContent = name;
-                const textElement = document.createElement('p');
-                textElement.className = 'text-stone-600 mt-1';
-                textElement.textContent = text;
-                commentDiv.appendChild(nameElement);
-                commentDiv.appendChild(textElement);
-                commentsContainer.prepend(commentDiv);
-            }
-
-            async function loadComments() {
-                try {
-                    const response = await fetch('/api/get-comments');
-                    const result = await response.json();
-                    if (!response.ok) throw new Error(result.error || 'Failed to fetch comments');
-                    
-                    commentsContainer.innerHTML = ''; 
-                    result.comments.forEach(comment => addCommentToDOM(comment.name, comment.text));
-                } catch (error) {
-                    console.error('Error loading comments:', error);
-                    alert('حدث خطأ أثناء تحميل التعليقات.');
-                }
-            }
-
-            commentForm.addEventListener('submit', async function(event) {
-                event.preventDefault();
-                const nameInput = document.getElementById('comment-name');
-                const commentInput = document.getElementById('comment-text');
-                const submitButton = commentForm.querySelector('button[type="submit"]');
-                const name = nameInput.value.trim();
-                const text = commentInput.value.trim();
-
-                if (name && text) {
-                    submitButton.disabled = true;
-                    submitButton.textContent = 'جاري الإضافة...';
-                    try {
-                        const response = await fetch('/api/add-comment', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ name, text }),
-                        });
-                        const result = await response.json();
-                        if (!response.ok) throw new Error(result.error || 'Failed to add comment');
-                        addCommentToDOM(result.comment.name, result.comment.text);
-                        nameInput.value = '';
-                        commentInput.value = '';
-                    } catch (error) {
-                        console.error('Error submitting comment:', error);
-                        alert('حدث خطأ: ' + error.message);
-                    }
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'إضافة تعليق';
-                }
-            });
-            
-            await loadComments();
-        });
-    </script>
 </body>
 </html>
