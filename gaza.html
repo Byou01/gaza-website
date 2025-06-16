@@ -7,45 +7,102 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #f0fdf4; color: #374151; }
-        .main-title { font-size: 3.75rem; font-weight: 800; color: #166534; text-align: center; padding: 4rem 1rem 2rem 1rem; }
-        .section-title { font-size: 1.875rem; font-weight: 700; color: #14532d; margin-bottom: 2.5rem; border-bottom: 3px solid #16a34a; padding-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
-        .content-card { background-color: white; border-radius: 16px; padding: 2.5rem; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05); }
-        .debate-card { padding: 1.5rem; border-radius: 12px; }
-        .icon { width: 2rem; height: 2rem; color: #15803d; }
-        .nav-link { position: relative; font-weight: 600; color: #475569; transition: color 0.3s; padding-bottom: 8px; }
-        .nav-link::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; right: 0; background-color: #16a34a; border-radius: 99px; transition: width 0.3s ease-in-out; }
-        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-        .nav-link:hover, .nav-link.active { color: #166534; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: #ffffff;
+            background-color: #000000;
+        }
+        .background-container {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 100px; /* لإعطاء مساحة للهيدر الثابت */
+        }
+        .background-container::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('images/background.jpg'); /* تأكد من أن مسار الصورة صحيح */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+        .background-container::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+            color: #e5e7eb;
+            transition: color 0.3s;
+            padding-bottom: 8px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            right: 0;
+            background-color: #60a5fa;
+            border-radius: 99px;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #ffffff;
+        }
+        .text-blend {
+            mix-blend-mode: difference;
+            filter: invert(1) grayscale(1);
+            font-weight: 900;
+        }
+        .prose-custom p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+        .prose-custom strong {
+            color: #ffffff;
+        }
     </style>
 </head>
-<body class="text-slate-700">
-    <header class="bg-white/70 backdrop-blur-lg shadow-sm sticky top-0 z-50">
-        <nav class="container max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-extrabold text-slate-800">موقع ياسين</a>
-            <div class="flex items-center space-x-8 space-x-reverse">
-                <a href="index.html" class="nav-link">الرئيسية</a>
-                <a href="analyses.html" class="nav-link active">التحليلات</a>
-            </div>
-        </nav>
-    </header>
-
-    <main class="container max-w-4xl mx-auto p-4 md:p-8">
-        <header class="my-8"><h1 class="main-title">تحليل الوضع في غزة</h1></header>
-        <div class="space-y-16">
-            <section>
-                <div class="content-card">
-                    <h2 class="section-title">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.311a7.5 7.5 0 0 1-7.5 0c-1.453 0-2.824.22-4.121.622M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm-5.25 9.375a3.375 3.375 0 0 1 6.75 0Zm10.5 0a3.375 3.375 0 0 1 6.75 0Z" /></svg>
-                        تحليل استراتيجي للتحديات
-                    </h2>
-                    <p class="text-slate-600 leading-relaxed text-lg">يتطلب تقييم فعالية المبادرات الشعبية، سواء كانت برية أو بحرية، النظر في عوامل واقعية تتجاوز الهدف المعلن لكسر الحصار. فمن ناحية، تشكل التحركات غير المنسقة لأعداد كبيرة تحدياً سيادياً وأمنياً للدول المجاورة. كما أن إدخال تجمعات مدنية إلى منطقة عمليات عسكرية يرفع من احتمالية التصعيد. الأهم من ذلك، أن العقبة الحقيقية أمام وصول المساعدات غالباً ما تكون لوجستية وأمنية، وتتعلق بآليات التفتيش والتوزيع المعطلة.</p>
+<body class="bg-black">
+    <div class="background-container">
+        <header class="bg-black/20 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-white/10">
+            <nav class="container max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="index.html" class="text-xl font-extrabold text-white">موقع ياسين</a>
+                <div class="flex items-center space-x-8 space-x-reverse">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="analyses.html" class="nav-link active">التحليلات</a>
                 </div>
-            </section>
-        </div>
-        <footer class="text-center py-16 mt-16"><p class="text-slate-500 text-sm">تم تجميع هذا العرض بناءً على مصادر إعلامية وتقارير حقوقية متاحة للعموم.</p></footer>
-    </main>
+            </nav>
+        </header>
+
+        <main class="container max-w-4xl mx-auto p-4 md:p-8 text-center">
+            <h1 class="text-5xl md:text-6xl text-blend leading-tight mb-8">
+                تحليل الوضع في غزة
+            </h1>
+            <div class="max-w-3xl mx-auto prose-custom text-left bg-black/20 backdrop-blur-sm p-8 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">تحليل استراتيجي للتحديات</h2>
+                <p>يتطلب تقييم فعالية المبادرات الشعبية، سواء كانت برية أو بحرية، النظر في عوامل واقعية تتجاوز الهدف المعلن لكسر الحصار. فمن ناحية، تشكل التحركات غير المنسقة لأعداد كبيرة تحدياً سيادياً وأمنياً للدول المجاورة. كما أن إدخال تجمعات مدنية إلى منطقة عمليات عسكرية يرفع من احتمالية التصعيد. الأهم من ذلك، أن العقبة الحقيقية أمام وصول المساعدات غالباً ما تكون لوجستية وأمنية، وتتعلق بآليات التفتيش والتوزيع المعطلة.</p>
+                <footer class="text-center pt-8 mt-8 border-t border-white/20">
+                    <p class="text-gray-300 text-sm">تم تجميع هذا العرض بناءً على مصادر إعلامية وتقارير حقوقية متاحة للعموم.</p>
+                </footer>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
