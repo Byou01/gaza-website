@@ -7,44 +7,113 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; color: #334155; }
-        .nav-link { position: relative; font-weight: 600; color: #475569; transition: color 0.3s; padding-bottom: 8px; }
-        .nav-link::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; right: 0; background-color: #3b82f6; border-radius: 99px; transition: width 0.3s ease-in-out; }
-        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-        .nav-link:hover, .nav-link.active { color: #2563eb; }
-        .analysis-card { background-color: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .analysis-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: #ffffff;
+            background-color: #000000;
+        }
+        .background-container {
+            position: relative;
+            min-height: 100vh;
+        }
+        .background-container::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+        .background-container::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Darker overlay for readability */
+            z-index: -1;
+        }
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+            color: #e5e7eb;
+            transition: color 0.3s;
+            padding-bottom: 8px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            right: 0;
+            background-color: #60a5fa;
+            border-radius: 99px;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #ffffff;
+        }
+        .text-blend {
+            mix-blend-mode: difference;
+            filter: invert(1) grayscale(1);
+            font-weight: 900;
+        }
+        .analysis-card {
+            background-color: rgba(17, 24, 39, 0.6); /* gray-900 with opacity */
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .analysis-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
-<body>
-    <header class="bg-white/70 backdrop-blur-lg shadow-sm sticky top-0 z-50">
-        <nav class="container max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-extrabold text-slate-800">موقع ياسين</a>
-            <div class="flex items-center space-x-8 space-x-reverse">
-                <a href="index.html" class="nav-link">الرئيسية</a>
-                <a href="analyses.html" class="nav-link active">التحليلات</a>
-            </div>
-        </nav>
-    </header>
-
-    <main class="container max-w-4xl mx-auto p-4 md:p-8 mt-10">
-        <header class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-800">قائمة التحليلات</h1>
-            <p class="text-lg text-slate-500 mt-4">اختر الموضوع الذي يهمك للاطلاع على التحليل الكامل.</p>
+<body class="bg-black">
+    <div class="background-container">
+        <!-- Header -->
+        <header class="bg-black/20 backdrop-blur-sm sticky top-0 z-50 border-b border-white/10">
+            <nav class="container max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="index.html" class="text-xl font-extrabold text-white">موقع ياسين</a>
+                <div class="flex items-center space-x-8 space-x-reverse">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="analyses.html" class="nav-link active">التحليلات</a>
+                </div>
+            </nav>
         </header>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <a href="gaza.html" class="analysis-card block">
-                <div class="p-6 bg-emerald-500"><h2 class="text-2xl font-bold text-white">تحليل غزة</h2></div>
-                <div class="p-6"><p class="text-slate-600 leading-relaxed">تحليل استراتيجي للتحديات التي تواجه المبادرات الإنسانية، ونقاش حول جدوى القوافل البرية في كسر الحصار.</p></div>
-            </a>
-            <a href="iran-israel.html" class="analysis-card block">
-                <div class="p-6 bg-rose-700"><h2 class="text-2xl font-bold text-white">الصراع الإيراني الإسرائيلي</h2></div>
-                 <div class="p-6"><p class="text-slate-600 leading-relaxed">وجهة نظري في الحرب بين إيران وإسرائيل، وتحليل الصراع كجزء من استراتيجية جيوسياسية واسعة للقوى العظمى.</p></div>
-            </a>
-        </div>
-    </main>
+        <!-- Main Content -->
+        <main class="container max-w-4xl mx-auto p-4 md:p-8 mt-16">
+            <header class="text-center mb-16">
+                <h1 class="text-6xl md:text-7xl text-blend leading-tight">قائمة التحليلات</h1>
+                <p class="text-lg text-gray-300 mt-4">اختر الموضوع الذي يهمك للاطلاع على التحليل الكامل.</p>
+            </header>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Gaza Analysis Card -->
+                <a href="gaza.html" class="analysis-card block text-white no-underline">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-emerald-300 mb-2">تحليل غزة</h2>
+                        <p class="text-gray-300 leading-relaxed">تحليل استراتيجي للتحديات التي تواجه المبادرات الإنسانية، ونقاش حول جدوى القوافل البرية في كسر الحصار.</p>
+                    </div>
+                </a>
+                <!-- Iran-Israel Analysis Card -->
+                <a href="iran-israel.html" class="analysis-card block text-white no-underline">
+                     <div class="p-6">
+                        <h2 class="text-2xl font-bold text-rose-400 mb-2">الصراع الإيراني الإسرائيلي</h2>
+                        <p class="text-gray-300 leading-relaxed">وجهة نظري في الحرب بين إيران وإسرائيل، وتحليل الصراع كجزء من استراتيجية جيوسياسية واسعة للقوى العظمى.</p>
+                    </div>
+                </a>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
