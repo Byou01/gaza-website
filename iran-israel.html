@@ -9,171 +9,45 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #111827; /* gray-900 */
-            color: #d1d5db; /* gray-300 */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        .main-title {
-            font-size: 3.75rem;
-            font-weight: 800;
-            color: white;
-            text-align: center;
-            padding: 4rem 1rem 2rem 1rem;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-        }
-        .section-title {
-            font-size: 1.875rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 2.5rem;
-            border-bottom: 3px solid #be123c; /* rose-700 */
-            padding-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .content-card {
-            background-color: #1f2937; /* gray-800 */
-            border-radius: 16px;
-            padding: 2.5rem;
-            border: 1px solid #374151; /* gray-700 */
-        }
-        .icon {
-            width: 2rem;
-            height: 2rem;
-            color: #f43f5e; /* rose-500 */
-        }
-        .nav-link {
-            position: relative;
-            font-weight: 600;
-            color: #d1d5db;
-            transition: color 0.3s;
-            padding-bottom: 8px;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: 0;
-            right: 0;
-            background-color: #be123c; /* rose-700 */
-            border-radius: 99px;
-            transition: width 0.3s ease-in-out;
-        }
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: white;
-        }
-         th, td {
-            padding: 0.75rem 1rem;
-            text-align: right;
-            border-bottom: 1px solid #374151;
-        }
-        thead th {
-            background-color: #374151;
-            font-weight: 700;
-            color: white;
-        }
+        body { font-family: 'Cairo', sans-serif; background-color: #111827; color: #d1d5db; }
+        .main-title { font-size: 3.75rem; font-weight: 800; color: white; text-align: center; padding: 4rem 1rem 2rem 1rem; text-shadow: 0 0 15px rgba(255, 255, 255, 0.1); }
+        .section-title { font-size: 1.875rem; font-weight: 700; color: white; margin-bottom: 2.5rem; border-bottom: 3px solid #be123c; padding-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+        .content-card { background-color: #1f2937; border-radius: 16px; padding: 2.5rem; border: 1px solid #374151; }
+        .icon { width: 2rem; height: 2rem; color: #f43f5e; }
+        .nav-link { position: relative; font-weight: 600; color: #d1d5db; transition: color 0.3s; padding-bottom: 8px; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; right: 0; background-color: #be123c; border-radius: 99px; transition: width 0.3s ease-in-out; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link:hover, .nav-link.active { color: white; }
     </style>
 </head>
 <body class="bg-gray-900">
-    <!-- Header -->
     <header class="bg-gray-900/80 backdrop-blur-md shadow-lg shadow-black/20 sticky top-0 z-50">
         <nav class="container max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-extrabold text-white">موقع ياسين</h1>
+            <a href="index.html" class="text-xl font-extrabold text-white">موقع ياسين</a>
             <div class="flex items-center space-x-8 space-x-reverse">
-                <a href="home.html" class="nav-link">الرئيسية</a>
-                <a href="index.html" class="nav-link">تحليل غزة</a>
-                <a href="iran-israel.html" class="nav-link active">الصراع الإيراني الإسرائيلي</a>
+                <a href="index.html" class="nav-link">الرئيسية</a>
+                <a href="analyses.html" class="nav-link active">التحليلات</a>
             </div>
         </nav>
     </header>
 
     <main class="container max-w-4xl mx-auto p-4 md:p-8">
-        <header class="my-8">
-            <h1 class="main-title">الحرب بين إيران وإسرائيل: القصة وما فيها</h1>
-        </header>
-
+        <header class="my-8"><h1 class="main-title">وجهة نظري في الحرب بين إيران وإسرائيل</h1></header>
         <div class="space-y-12">
-            
             <section>
                 <div class="content-card">
                     <h2 class="section-title">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" /></svg>
-                        الزبدة: ليش الموضوع خطير؟
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
+                        القصة وما فيها
                     </h2>
-                    <p class="leading-loose text-lg">
-                        الضربات المباشرة اللي شفناها بين إيران وإسرائيل في 2024 و 2025 غيرت كل شيء. الموضوع ما عاد "حرب بالوكالة" أو عمليات سرية، لا، صارت مواجهة مباشرة وعلنية. "قواعد اللعبة" القديمة انكسرت، والمنطقة كلها صارت على حافة حرب كبيرة ممكن تأثر على العالم كله، من ناحية استقرار واقتصاد. أنا هنا بحلل الموضوع بعمق، مو بس كعداوة قديمة، لا، كصراع نفوذ ومصالح حديث بين دولتين كل وحدة لها طموحاتها ومخاوفها.
-                    </p>
-                </div>
-            </section>
-
-            <section>
-                <div class="content-card">
-                    <h2 class="section-title">
-                       <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
-                        كيف بدأت القصة؟ من حبايب لأعداء
-                    </h2>
-                    <div class="space-y-6 leading-loose text-lg">
-                        <p>ترا العداوة اللي نشوفها اليوم مو شيء قديم! قبل ثورة 1979، الوضع كان مختلف تماماً. إيران تحت حكم الشاه وإسرائيل كانوا حلفاء، مو عشان يحبون بعض، بس عشان مصالحهم كانت وحدة ضد القومية العربية اللي كان يقودها جمال عبدالناصر. كان بينهم تعاون استخباراتي وعسكري واقتصادي، وإيران كانت تبيع نفط لإسرائيل.</p>
-                        <p>لكن بعد ثورة 1979، كل شيء انقلب. النظام الجديد في إيران صار يشوف إسرائيل "الشيطان الأصغر" وعدو للإسلام. قطعوا العلاقات، وأعطوا السفارة الإسرائيلية لمنظمة التحرير الفلسطينية، وبدأوا يدعمون حركات مثل حزب الله وحماس. من هنا، تحول الصراع لحرب وكالة طويلة، وهذا يثبت إن العداوة الحالية هي نتيجة سياسية، مو قدر محتوم.</p>
+                    <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
+                        <p>أرى أن الصراع هذا هو صراع نفوذ جيوسياسي على المنطقة بالنسبة لإسرائيل، أما بالنسبة لإيران فهي تحاول الحفاظ على حدودها وحفظ ماء وجهها، وهو أيضاً صراع أيديولوجي وديني. لقد قامت إسرائيل باستدراج إيران لهذه الحرب عبر ضربها على القنصلية، أما بالنسبة لرد إيران فقد كان عرضاً مسرحياً يهدف لحفظ ماء الوجه، مع تجنب إحداث أضرار حقيقية، وحتى لو كان مدروساً فإن إسرائيل لديها الأفضلية لأنها هي من سحبت إيران للحرب.</p>
+                        <p>إسرائيل سوف تفعل أي شيء لتحقيق غايتها وشعارهم **"الغاية تبرر الوسيلة"**. الشرارة التي ستشعل الحرب الشاملة هي إما استجابة إيران لتصعيد إسرائيلي مدروس، أو اغتيال شخصية إيرانية سياسية عليا. سنشهد تصعيدات مستمرة تؤدي إلى مواجهات مباشرة متقطعة ومن ثم حرب شاملة، إنها مسألة وقت.</p>
                     </div>
-                </div>
-            </section>
-
-            <section>
-                <div class="content-card">
-                    <h2 class="section-title">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                        كيف ولّعت بينهم؟ من تحت الطاولة للمواجهة
-                    </h2>
-                     <div class="space-y-6 leading-loose text-lg">
-                        <p>لسنوات، إسرائيل كانت شغالة على استراتيجية "الحرب بين الحروب"، يعني تضرب أهداف إيرانية في سوريا وتغتال علماء وقادة عشان تضعفهم بدون ما تبدأ حرب شاملة. لكن في 1 أبريل 2024، إسرائيل غيرت اللعبة وقصفت القنصلية الإيرانية في دمشق. هذا كان خط أحمر بالنسبة لإيران، لأن القنصلية تعتبر أرض سيادية.</p>
-                        <p>الرد الإيراني جاء سريعاً في 13 أبريل، بهجوم مباشر من الأراضي الإيرانية لأول مرة. ورغم إن إسرائيل أسقطت أغلب الصواريخ، إلا أن إيران فرضت قاعدة جديدة: أي هجوم مباشر علينا، بنرد عليه بهجوم مباشر. بعدها إسرائيل ردت بضربة محدودة على أصفهان، وبعدها في يونيو 2025، شنت عملية "الأسد الصاعد" اللي استهدفت قيادات الحرس الثوري، وردت إيران بصواريخ على مدن إسرائيلية. خلاص، الموضوع صار مواجهة مفتوحة.</p>
-                    </div>
-                    <div class="overflow-x-auto mt-8">
-                        <table class="min-w-full text-sm rounded-lg overflow-hidden">
-                            <thead>
-                                <tr>
-                                    <th>التاريخ</th>
-                                    <th>الحدث</th>
-                                    <th>الزبدة</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-400">
-                                <tr><td>1 أبريل 2024</td><td>قصف القنصلية الإيرانية</td><td>الشرارة اللي ولعت المواجهة.</td></tr>
-                                <tr><td>13 أبريل 2024</td><td>هجوم إيران المباشر</td><td>أول مرة إيران تضرب من أراضيها.</td></tr>
-                                <tr><td>19 أبريل 2024</td><td>رد إسرائيل المحدود</td><td>رسالة "نقدر نوصلكم".</td></tr>
-                                <tr><td>13 يونيو 2025</td><td>عملية "الأسد الصاعد"</td><td>تصعيد إسرائيلي كبير.</td></tr>
-                                <tr><td>15 يونيو 2025</td><td>رد إيران الصاروخي</td><td>تأكيد على استمرار المواجهة.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-             <section>
-                <div class="content-card">
-                    <h2 class="section-title">
-                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A11.953 11.953 0 0 1 12 16.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12a8.959 8.959 0 0 1-2.157 5.253m0 0A11.953 11.953 0 0 1 12 19.5c-2.998 0-5.74-1.1-7.843-2.918" /></svg>
-                        مين اللاعبين الكبار في الخلفية؟
-                    </h2>
-                    <p class="leading-loose text-lg">
-                        الدول الكبرى ما تبغى حرب شاملة، لكن كل وحدة لها مصالحها. **أمريكا** تدعم الدفاع عن إسرائيل بقوة، لكنها ما تبغى تتورط في هجوم مباشر. **روسيا** حليفة لإيران، لكنها في نفس الوقت تحافظ على علاقتها مع إسرائيل وما تبغى تدخل عسكرياً. **والصين**، همها الأول هو الاقتصاد والاستقرار عشان تحمي مصالحها. يعني باختصار، كلهم يمسكون العصا من النص، يخلون الصراع شغال بس ما يوصل لحرب عالمية.
-                    </p>
                 </div>
             </section>
         </div>
-
-        <footer class="text-center py-16 mt-16">
-            <p class="text-gray-400 text-sm">هذا التحليل يعبر عن وجهة نظري الشخصية.</p>
-        </footer>
+        <footer class="text-center py-16 mt-16"><p class="text-gray-400 text-sm">هذا التحليل يعبر عن وجهة نظري الشخصية.</p></footer>
     </main>
 </body>
 </html>
