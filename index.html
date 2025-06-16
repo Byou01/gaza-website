@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع ياسين | تحليلات ورؤى</title>
+    <title>موقع ياسين</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,42 +11,31 @@
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            color: #ffffff; /* Default text color is white for contrast */
-            background-color: #000000; /* Black background to support the blend mode */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            color: #ffffff;
+            background-color: #000000;
         }
-        /* Container for the background and content */
         .background-container {
             position: relative;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center content vertically */
-            align-items: center; /* Center content horizontally */
+            justify-content: center;
+            align-items: center;
         }
-        /* The fixed background image */
         .background-container::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('images/background.jpg'); /* Corrected background image name */
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('images/background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             z-index: -2;
         }
-        /* Overlay to darken the background slightly for better readability */
         .background-container::after {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background-color: rgba(0, 0, 0, 0.3);
             z-index: -1;
         }
@@ -74,17 +63,15 @@
         .nav-link:hover, .nav-link.active {
             color: #ffffff;
         }
-        /* Text blending effect */
         .text-blend {
             mix-blend-mode: difference;
             filter: invert(1) grayscale(1);
             font-weight: 900;
         }
-        /* Increased line-height and font size for paragraphs */
         .prose-custom p {
-            font-size: 1.125rem; /* text-lg */
-            line-height: 1.8;   /* Slightly more space between lines */
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
         }
         .prose-custom strong {
             color: #ffffff;
@@ -93,36 +80,28 @@
 </head>
 <body class="bg-black">
     <div class="background-container">
-        <!-- Header -->
         <header class="bg-black/20 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-white/10">
             <nav class="container max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-                <h1 class="text-xl font-extrabold text-white">موقع ياسين</h1>
+                <a href="index.html" class="text-xl font-extrabold text-white">موقع ياسين</a>
                 <div class="flex items-center space-x-8 space-x-reverse">
-                    <a href="home.html" class="nav-link active">الرئيسية</a>
-                    <a href="index.html" class="nav-link">تحليل غزة</a>
-                    <a href="iran-israel.html" class="nav-link">الصراع الإيراني الإسرائيلي</a>
+                    <a href="index.html" class="nav-link active">الرئيسية</a>
+                    <a href="analyses.html" class="nav-link">التحليلات</a>
                 </div>
             </nav>
         </header>
 
-        <!-- Main Content Centered -->
         <main class="container max-w-4xl mx-auto p-4 md:p-8 text-center">
-            <!-- Title with blend effect -->
             <h1 class="text-6xl md:text-7xl text-blend leading-tight mb-8">
                 مرحباً في موقعي
             </h1>
-
-            <!-- Bio text directly on the background -->
             <div class="max-w-2xl mx-auto prose-custom">
                 <p>هنا انا اعبر عن رأيي في القضايا الي تجذب اهتمامي او الي انا ملزم اتكلم عنها من ناحية ديني او معتقداتي.</p>
                 <p><strong>هدفي:</strong> اشارك رأيي في القضايا المتداولة.</p>
                 <p><strong>معلومات عني:</strong> عمري 15، طالب اولى ثانوي.</p>
                 <p><strong>اهتماماتي:</strong> احب التصوير وان شاء الله رح اشتري كاميرا وانزل لكم.</p>
             </div>
-             
-             <!-- Call to action button -->
              <div class="mt-12">
-                 <a href="index.html" class="bg-white/20 backdrop-blur-sm text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-white/30 transition-colors text-lg">
+                 <a href="analyses.html" class="bg-white/20 backdrop-blur-sm text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-white/30 transition-colors text-lg">
                     اكتشف التحليلات
                 </a>
              </div>
