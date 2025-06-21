@@ -154,3 +154,22 @@ body {
     background-color: #34D399;
     color: #000;
 }
+
+
+/* ==== أنماط قسم رأي الكاتب ==== */
+.bg-black\/20 {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.border-l {
+    border-left-width: 1px;
+}
+
+.border-white\/30 {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.rounded-r {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
