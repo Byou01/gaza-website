@@ -1,0 +1,156 @@
+/* ==== الأنماط الأساسية للموقع ==== */
+body {
+    font-family: 'Cairo', sans-serif;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.background-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.background-container::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -2;
+}
+
+.background-container::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+/* ==== أنماط القائمة العلوية ==== */
+.nav-link {
+    position: relative;
+    font-weight: 600;
+    color: #e5e7eb;
+    transition: color 0.3s;
+    padding-bottom: 8px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    right: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* ==== أنماط المحتوى ==== */
+.content-box {
+    background-color: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prose-custom p, .prose-custom li {
+    font-size: 1.15rem;
+    line-height: 2;
+}
+
+/* ==== أنماط الخط الزمني (عامة) ==== */
+.timeline {
+    position: relative;
+    padding: 1.5rem 0;
+    margin: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    height: 100%;
+    width: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-right: 3rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* ==== أنماط الأزرار والمصادر (عامة) ==== */
+.share-button {
+    color: #e5e7eb;
+    background-color: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+#sources-container {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.7s ease-in-out;
+    direction: ltr;
+}
+
+#sources-container.open {
+    max-height: 1200px;
+}
+
+/* ============================================= */
+/* ====   الأنماط الخاصة بكل موضوع (Themes)   ==== */
+/* ============================================= */
+
+/* --- موضوع إيران وإسرائيل (الأزرق) --- */
+.theme-iran-israel .nav-link.active::after, 
+.theme-iran-israel .timeline-item::before {
+    background-color: #60a5fa;
+}
+.theme-iran-israel .timeline::before {
+    background-color: rgba(96, 165, 250, 0.3);
+}
+.theme-iran-israel .share-button:hover, 
+.theme-iran-israel #toggle-sources-btn:hover {
+    background-color: #60a5fa;
+    color: #fff;
+}
+
+
+/* --- موضوع غزة (الأخضر) --- */
+.theme-gaza .nav-link.active::after, 
+.theme-gaza .timeline-item::before {
+    background-color: #34D399;
+}
+.theme-gaza .timeline::before {
+    background-color: rgba(52, 211, 153, 0.3);
+}
+.theme-gaza .share-button:hover, 
+.theme-gaza #toggle-sources-btn:hover {
+    background-color: #34D399;
+    color: #000;
+}
