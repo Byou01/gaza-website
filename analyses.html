@@ -8,7 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-        <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
         body {
             font-family: 'Cairo', sans-serif;
             color: #ffffff;
@@ -25,14 +27,16 @@
             background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            /* ==== تحسين الأداء ====
+               تم حذف 'background-attachment: fixed;' لأنه يسبب بطء في التمرير.
+            */
             z-index: -2;
         }
         .background-container::after {
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.65); /* Darker overlay for readability */
+            background-color: rgba(0, 0, 0, 0.65);
             z-index: -1;
         }
         .nav-link {
@@ -59,61 +63,34 @@
         .nav-link:hover, .nav-link.active {
             color: #ffffff;
         }
-        
-        /* --- التحسينات الجديدة --- */
 
-        /* 1. تعريف حركة الظهور */
+        /* ==== تحسين الأداء: جعل الحركات أسرع وأكثر سلاسة ==== */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        /* 2. تطبيق الحركة على عناصر الصفحة بتأخير متدرج */
-        main > header {
-            animation: fadeInUp 0.5s ease-out forwards;
+        main > header, main section {
+            animation: fadeInUp 0.4s ease-out forwards;
         }
-        section.mb-16 { /* قسم التحليل البارز */
-            animation: fadeInUp 0.5s ease-out 0.2s forwards;
-            opacity: 0; /* يبدأ شفافاً قبل الحركة */
-        }
-        section .grid .article-card { /* بطاقات التحليلات في الشبكة */
-             animation: fadeInUp 0.5s ease-out forwards;
-             opacity: 0; /* تبدأ شفافة قبل الحركة */
-        }
-        /* تأخير ظهور البطاقات بشكل متتابع */
-        .grid .article-card:nth-child(1) { animation-delay: 0.4s; }
-        .grid .article-card:nth-child(2) { animation-delay: 0.5s; }
-        .grid .article-card:nth-child(3) { animation-delay: 0.6s; }
-
-        /* --- نهاية التحسينات الجديدة --- */
 
         .article-card {
-            background-color: rgba(17, 24, 39, 0.6); /* gray-900 with opacity */
-            backdrop-filter: blur(12px);
+            background-color: rgba(17, 24, 39, 0.65);
+            backdrop-filter: blur(10px); /* تقليل البلور قليلاً لتحسين الأداء */
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease; /* زيادة طفيفة في مدة الانتقال */
-            overflow: hidden; /* ضروري لتأثير تقريب الصورة */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* جعل الانتقالات أسرع */
+            overflow: hidden;
         }
         .article-card:hover {
-            transform: translateY(-8px); /* زيادة طفيفة في مسافة الرفع */
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
-
-        /* --- تحسين جديد: تقريب الصورة داخل البطاقة --- */
         .article-card .bg-cover {
-            transition: transform 0.4s ease-out;
+            transition: transform 0.3s ease-out;
         }
         .article-card:hover .bg-cover {
-            transform: scale(1.05); /* تقريب الصورة عند مرور الفأرة */
+            transform: scale(1.05);
         }
-        /* --- نهاية التحسين --- */
         
         .tag {
             display: inline-block;
@@ -144,55 +121,51 @@
                 <p class="text-lg text-gray-300 mt-4 max-w-2xl mx-auto">مجموعة من التحليلات المعمقة في القضايا السياسية والاستراتيجية الراهنة.</p>
             </header>
 
-            <!-- Featured Analysis Section -->
-            <section class="mb-16">
-                <a href="iran-israel.html" class="block article-card md:flex items-stretch">
-                    <div class="md:w-3/5">
-                        <!-- You can replace this with an actual image for the article -->
-                         <div class="h-full min-h-[300px] bg-cover bg-center rounded-t-lg md:rounded-r-lg md:rounded-t-none" style="background-image: url('https://images.unsplash.com/photo-1695236815462-8c6273444392?q=80&w=1932&auto=format&fit=crop');"></div>
-                    </div>
-                    <div class="md:w-2/5 p-8 flex flex-col justify-center">
-                        <div>
-                            <span class="tag bg-rose-500 text-white">الصراع الإقليمي</span>
-                            <h2 class="text-3xl font-bold text-white my-3">وجهة نظري في الحرب بين إيران وإسرائيل</h2>
-                            <p class="text-gray-300 leading-relaxed mb-4">تحليل الصراع كجزء من استراتيجية جيوسياسية واسعة، ودور القوى العظمى في تأجيج التوترات الإقليمية.</p>
-                            <div class="text-sm text-gray-400">
-                                <span>ياسين</span>
-                                <span class="mx-2">&bull;</span>
-                                <span>١٧ يونيو ٢٠٢٥</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </section>
-
-            <!-- Grid of other analyses -->
+            <!-- Grid of analyses -->
             <section>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Gaza Analysis Card -->
-                    <a href="gaza.html" class="article-card block">
-                        <div class="h-56 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1586910582859-59846d9b4b45?q=80&w=2070&auto=format&fit=crop')"></div>
-                        <div class="p-6">
-                            <span class="tag bg-emerald-500 text-white">تحليل غزة</span>
-                            <h3 class="text-2xl font-bold my-2"> المساعدات في غزة</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-4"> هل هناك جدوى من قافلة الصمود وسفن المساعدات او الحملة العالمية للمشي نحو غزة ؟.</p>
-                             <div class="text-xs text-gray-400 border-t border-white/10 pt-3">
-                                <span>١٥ يونيو ٢٠٢٥</span>
+                    <a href="gaza.html" class="article-card block group">
+                        <!-- ==== تحسين الأداء: إضافة loading="lazy" للصورة ==== -->
+                        <div class="h-56 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1586910582859-59846d9b4b45?q=80&w=2070&auto=format&fit=crop')" loading="lazy"></div>
+                        <div class="p-6 flex flex-col justify-between h-56">
+                            <div>
+                                <span class="tag bg-emerald-500 text-white">تحليل غزة</span>
+                                <h3 class="text-2xl font-bold my-2 group-hover:text-emerald-300 transition-colors">المساعدات لغزة: تحديات البحر والبر</h3>
+                            </div>
+                            <!-- ==== إضافة عدّاد التعليقات ==== -->
+                            <div class="text-xs text-gray-400 border-t border-white/10 pt-3 flex justify-between items-center mt-2">
+                                <span>٢١ يونيو ٢٠٢٥</span>
+                                <a href="gaza.html#disqus_thread" class="hover:text-white transition">
+                                    <i class="fas fa-comments ml-1"></i>
+                                    <span>تعليقات</span>
+                                </a>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Placeholder Card 1 -->
-                    <div class="article-card bg-black/20 flex items-center justify-center border-dashed border-white/20">
-                         <div class="text-center text-gray-400">
-                            <h3 class="text-xl font-bold">تحليل قادم</h3>
-                            <p class="text-sm">سيتم إضافة المزيد من التحليلات هنا</p>
+                    <!-- Iran-Israel Analysis Card -->
+                    <a href="iran-israel.html" class="article-card block group">
+                        <div class="h-56 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1695236815462-8c6273444392?q=80&w=1932&auto=format&fit=crop')" loading="lazy"></div>
+                         <div class="p-6 flex flex-col justify-between h-56">
+                            <div>
+                                <span class="tag bg-rose-500 text-white">الصراع الإقليمي</span>
+                                <h3 class="text-2xl font-bold my-2 group-hover:text-rose-400 transition-colors">ايران واسرائيل</h3>
+                            </div>
+                             <!-- ==== إضافة عدّاد التعليقات ==== -->
+                            <div class="text-xs text-gray-400 border-t border-white/10 pt-3 flex justify-between items-center mt-2">
+                                <span>١٨ يونيو ٢٠٢٥</span>
+                                <a href="iran-israel.html#disqus_thread" class="hover:text-white transition">
+                                    <i class="fas fa-comments ml-1"></i>
+                                    <span>تعليقات</span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-
-                     <!-- Placeholder Card 2 -->
-                    <div class="article-card bg-black/20 flex items-center justify-center border-dashed border-white/20">
+                    </a>
+                    
+                    <!-- Placeholder Card -->
+                    <div class="article-card bg-black/20 flex items-center justify-center border-dashed border-white/20 min-h-[448px]">
                          <div class="text-center text-gray-400">
                             <h3 class="text-xl font-bold">تحليل قادم</h3>
                             <p class="text-sm">سيتم إضافة المزيد من التحليلات هنا</p>
@@ -203,5 +176,8 @@
             </section>
         </main>
     </div>
+    
+    <!-- ==== إضافة عدّاد التعليقات: السكريبت الخاص بـ Disqus ==== -->
+    <script id="dsq-count-scr" src="//mwq-ysyn.disqus.com/count.js" async></script>
 </body>
 </html>
