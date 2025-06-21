@@ -14,7 +14,7 @@ body {
     content: '';
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url('background.jpg');
+    background-image: url('https://i.postimg.cc/mDXsgzww/background.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -27,6 +27,18 @@ body {
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: -1;
+}
+
+/* ==== شريط التقدم ==== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #34D399;
+    z-index: 1000;
+    width: 0%;
+    transition: width 0.1s ease;
 }
 
 /* ==== أنماط القائمة العلوية ==== */
@@ -52,6 +64,35 @@ body {
     width: 100%;
 }
 
+/* ==== قائمة الجوال ==== */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    width: 200px;
+    padding: 1rem;
+    z-index: 100;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu .nav-link {
+    display: block;
+    padding: 0.75rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu .nav-link:last-child {
+    border-bottom: none;
+}
+
 /* ==== أنماط المحتوى ==== */
 .content-box {
     background-color: rgba(17, 24, 39, 0.7);
@@ -62,6 +103,10 @@ body {
 .prose-custom p, .prose-custom li {
     font-size: 1.15rem;
     line-height: 2;
+}
+
+.prose-custom strong {
+    color: #ffffff;
 }
 
 /* ==== أنماط الخط الزمني (عامة) ==== */
@@ -176,4 +221,34 @@ body {
 
 .list-decimal {
     list-style-type: decimal;
+}
+
+/* ==== تحسينات جديدة ==== */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .background-container::before {
+        background-attachment: scroll;
+    }
+}
+
+/* ==== الوضع النهاري ==== */
+.light-mode {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.light-mode .prose-custom strong {
+    color: #212529;
+}
+
+.light-mode .content-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #212529;
 }
