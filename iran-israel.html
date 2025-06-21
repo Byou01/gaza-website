@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="theme-iran-israel">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,301 +7,18 @@
     <title>تحليل: ايران واسرائيل | موقع ياسين</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root {
-            --primary: #1a202c;
-            --secondary: #2d3748;
-            --accent: #d69e2e;
-            --text-primary: #e2e8f0;
-            --text-secondary: #a0aec0;
-        }
-        
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: var(--text-primary);
-            min-height: 100vh;
-        }
-        
-        .background-container {
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48cGF0aCBkPSJNIDAgMCBMIDEwIDAgTCAxMCAxMCBMIDAgMTBaIiBmaWxsPSJub25lIiBzdHJva2U9IiMyYTNmNTkiIHN0cm9rZS13aWR0aD0iMC4xIiBzdHJva2Utb3BhY2l0eT0iMC4xNSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
-            background-size: cover;
-        }
-        
-        .header-gradient {
-            background: linear-gradient(90deg, rgba(13, 17, 23, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
-            backdrop-filter: blur(10px);
-        }
-        
-        .content-box {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .nav-link {
-            color: var(--text-secondary);
-            font-weight: 600;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: var(--accent);
-        }
-        
-        .nav-link.active {
-            color: var(--accent);
-        }
-        
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-        
-        .prose-custom h2 {
-            color: var(--accent);
-            position: relative;
-            padding-right: 1rem;
-        }
-        
-        .prose-custom h2::before {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-        
-        .prose-custom p {
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-        
-        .share-button {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-        
-        .share-button:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        .timeline {
-            position: relative;
-            margin: 3rem 0;
-            padding-right: 2rem;
-            border-right: 2px solid var(--accent);
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -6px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent);
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: -6px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding-right: 1.5rem;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: 5px;
-            right: -9px;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent);
-        }
-        
-        .timeline h3 {
-            color: var(--accent);
-            margin-bottom: 2rem;
-            position: relative;
-            padding-right: 1rem;
-        }
-        
-        .timeline h3::before {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-        
-        .list-disc li {
-            margin-bottom: 0.8rem;
-            position: relative;
-            padding-right: 1.5rem;
-        }
-        
-        .list-disc li::before {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0.6rem;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent);
-        }
-        
-        .list-disc li strong {
-            color: var(--accent);
-        }
-        
-        .sources-container {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-        
-        .sources-container.active {
-            max-height: 500px;
-        }
-        
-        .sources-container ul li {
-            transition: all 0.3s ease;
-        }
-        
-        .sources-container ul li:hover {
-            background: rgba(214, 158, 46, 0.1);
-            border-left: 2px solid var(--accent);
-        }
-        
-        .sources-container a {
-            color: var(--text-secondary);
-            transition: color 0.3s ease;
-        }
-        
-        .sources-container a:hover {
-            color: var(--accent);
-        }
-        
-        .toggle-icon {
-            transition: transform 0.3s ease;
-        }
-        
-        .toggle-icon.active {
-            transform: rotate(180deg);
-        }
-        
-        @media (max-width: 768px) {
-            .content-box {
-                padding: 1.5rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .prose-custom h2 {
-                font-size: 1.5rem;
-            }
-            
-            .timeline {
-                padding-right: 1.5rem;
-            }
-        }
-        
-        .article-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(90deg, #1e3a8a 0%, #1e40af 100%);
-            border-radius: 12px;
-            margin: 2rem 0;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .article-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48cGF0aCBkPSJNIDAgMCBMIDEwIDAgTCAxMCAxMCBMIDAgMTBaIiBmaWxsPSJub25lIiBzdHJva2U9IiM5Y2M3ZmYiIHN0cm9rZS13aWR0aD0iMC4xIiBzdHJva2Utb3BhY2l0eT0iMC4yIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
-            opacity: 0.4;
-        }
-        
-        .article-image-text {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.9);
-            text-align: center;
-            z-index: 1;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            max-width: 80%;
-        }
-        
-        .article-image-subtext {
-            position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-            z-index: 1;
-        }
-        
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
-            margin: 3rem 0;
-        }
-    </style>
 </head>
-<body>
+<body class="bg-black">
     <div class="background-container">
         <!-- Header Navigation -->
-        <header class="header-gradient sticky top-0 z-50 border-b border-white/10">
+        <header class="bg-black/20 backdrop-blur-sm sticky top-0 z-50 border-b border-white/10">
             <nav class="container max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-                <a href="index.html" class="text-xl font-extrabold text-white flex items-center">
-                    <i class="fas fa-globe-asia mr-2 text-amber-500"></i>
-                    موقع ياسين
-                </a>
+                <a href="index.html" class="text-xl font-extrabold text-white">موقع ياسين</a>
                 <div class="flex items-center space-x-8 space-x-reverse">
                     <a href="index.html" class="nav-link">الرئيسية</a>
                     <a href="analyses.html" class="nav-link active">التحليلات</a>
@@ -317,25 +34,15 @@
                     <header class="text-center mb-10">
                         <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight">ايران واسرائيل</h1>
                         <p class="text-sm text-gray-300 mt-4">نُشر في ١٨ يونيو ٢٠٢٥ &bull; قراءة ٥ دقائق</p>
-                        
-                        <!-- Article Image -->
-                        <div class="article-image mt-8">
-                            <div class="article-image-text">الصراع الإيراني الإسرائيلي: من حرب الظل إلى المواجهة المباشرة</div>
-                            <div class="article-image-subtext">تصور فني للصراع الجيوسياسي</div>
-                        </div>
                     </header>
 
                     <div class="prose-custom max-w-none">
                         <p>بسم الله الرحمان الرحيم والصلاة والسلام على سيدنا محمد وعلى آله وصحبه أجمعين، سأشرح القصة من أولها لآخرها حتى يفهمها الجميع (الفقرات مقسمة بحيث يمكنك تخطي الأجزاء التي تعرفها).</p>
                         
-                        <div class="section-divider"></div>
-                        
                         <h2 class="text-2xl font-bold mt-8 mb-4">حرب الوكالة: التفوق الإيراني والمواجهة الخفية</h2>
                         <p>كانت بين إيران وإسرائيل حرب وكالة "من تحت لتحت"، والتي كانت إيران متفوقة فيها وخصوصًا بامتلاكها لأغلب محور المقاومة وعدة وكلاء مثل حزب الله، أو نظام الأسد في سوريا، أو الحوثيين في اليمن، والهدف منه كان حماية إيران، وغيرها من المصالح. بتكلم عنها ف موضوع ثاني</p>
                         <p>لعقود، خاضت إيران وإسرائيل "حرب ظل" تميزت بعمليات سرية متبادلة. شملت هذه الحرب اغتيالات لعلماء نوويين إيرانيين، وهجمات سيبرانية على منشآت حيوية، واستهداف سفن شحن. كانت سوريا الساحة الرئيسية لهذه المواجهة، حيث شنت إسرائيل مئات الغارات لمنع ترسيخ الوجود العسكري الإيراني. في المقابل، مارست إيران سياسة "الصبر الاستراتيجي"، بهدف بناء "طوق ناري" حول إسرائيل عبر وكلائها.</p>
 
-                        <div class="section-divider"></div>
-                        
                         <h2 class="text-2xl font-bold mt-8 mb-4">الهجوم المحسوب ونقطة التحول</h2>
                         <p>كان توقيت هجوم إسرائيل واستفزازها لإيران محسوبًا ومنتظرًا. شكل الهجوم الجوي الإسرائيلي على القنصلية الإيرانية في دمشق في 1 أبريل 2024 نقطة تحول حاسمة. هذا الهجوم، الذي أودى بحياة قادة بارزين في الحرس الثوري مثل العميد محمد رضا زاهدي، اعتبرته طهران هجومًا على أرضها السيادية، كونه استهدف مبنى دبلوماسيًا يتمتع بالحماية بموجب القانون الدولي (اتفاقية فيينا للعلاقات الدبلوماسية). من وجهة نظر إسرائيل، لم يكن المبنى دبلوماسيًا بحتًا، بل كان "مبنى عسكريًا لقوات القدس متنكرًا في زي مدني"، مما جعله هدفًا مشروعًا.</p>
                         
@@ -357,8 +64,6 @@
 
                         <p>هذا الاستفزاز المتعمد والمحرج أجبر إيران على التخلي عن سياسة "الصبر الاستراتيجي" والرد بشكل مباشر لأول مرة في تاريخها، للحفاظ على مصداقيتها أمام شعبها وحلفائها. بهذا، انتقل الصراع من الخفاء إلى العلن، وهذا بالضبط ما قد تكون أرادته إسرائيل، لأن حرب الوكالة كانت إيران تمتلك فيها الأفضلية. الآن، في المواجهة المباشرة، تغيرت موازين القوى لصالح إسرائيل التي تمتلك تفوقًا عسكريًا تقليديًا ودعمًا دوليًا واسعًا.</p>
                         
-                        <div class="section-divider"></div>
-                        
                         <h2 class="text-2xl font-bold mt-8 mb-4">مؤشرات ضعف إيران في الحرب المباشرة</h2>
                          <ul class="list-disc pr-5 space-y-2">
                             <li><strong>الضعف الاقتصادي:</strong> يعاني الاقتصاد الإيراني من الإنهاك بسبب العقوبات الدولية طويلة الأمد، مما يحد من قدرته على تمويل حرب شاملة ومستمرة.</li>
@@ -367,12 +72,10 @@
                             <li><strong>الاختراقات الأمنية:</strong> أظهرت الهجمات الإسرائيلية قدرة استخباراتية على الوصول إلى العمق الإيراني، واستهداف قادة كبار، وكشفت عن فشل الدفاعات الجوية الإيرانية في كشف جميع الطائرات المسيرة المهاجمة في الهجوم الإسرائيلي اللاحق على أصفهان.</li>
                         </ul>
 
-                        <div class="section-divider"></div>
-                        
                         <h2 class="text-2xl font-bold mt-8 mb-4">معلومات إضافية عن الاشتباكات الأخيرة</h2>
                         <ul class="list-disc pr-5 space-y-2">
                             <li><strong>تحالف دفاعي دولي:</strong> شاركت أمريكا وبريطانيا وفرنسا بفعالية في إسقاط المقذوفات الإيرانية.</li>
-                            <li><strong>دور دول المنطقة:</strong> الأردن اعترض صواريخ، وتقارير تفيد بمشاركة دول خليجية بالمعلومات الاستخباراتية.</li>
+                            <li><strong>دور دول المنطقة:</strong> الأردن اعترف صواريخ، وتقارير تفيد بمشاركة دول خليجية بالمعلومات الاستخباراتية.</li>
                             <li><strong>الهجوم السيبراني العراقي:</strong> جماعة "الطوفان الإلكتروني" أعلنت مسؤوليتها عن تعطيل أنظمة رادار إسرائيلية.</li>
                             <li><strong>الرد الإسرائيلي المحدود:</strong> استهدف قاعدة جوية بالقرب من أصفهان بطائرات مسيرة صغيرة.</li>
                         </ul>
@@ -390,19 +93,18 @@
                         </div>
                         
                         <div class="text-center border-t border-white/10 pt-8">
-                            <button id="toggle-sources-btn" class="text-lg bg-white/10 px-6 py-2 rounded-lg border border-white/20 transition-all flex items-center justify-center mx-auto hover:bg-amber-500/20 hover:border-amber-500/50">
+                            <button id="toggle-sources-btn" class="text-lg bg-white/10 px-6 py-2 rounded-lg border border-white/20 hover:bg-white/20 transition-all flex items-center justify-center mx-auto">
                                 <span>عرض المصادر</span>
-                                <i id="toggle-icon" class="fa-solid fa-chevron-down mr-3 transition-transform duration-300 toggle-icon"></i>
+                                <i class="fa-solid fa-chevron-down mr-3 transition-transform duration-300"></i>
                             </button>
                         </div>
 
-                        <div id="sources-container" class="sources-container mt-6 text-sm">
-                             <ul class="space-y-2 list-none p-0 text-right">
+                        <div id="sources-container" class="mt-6 text-sm">
+                            <ul class="space-y-2 list-none p-0 text-left">
                                 <li class="p-2 rounded bg-black/20"><a href="https://www.aljazeera.net/politics/2024/4/7/..." target="_blank">https://www.aljazeera.net/politics/2024/4/7/...</a></li>
-                                <li class="p-2 rounded bg-black/20"><a href="https://www.reuters.com/world/middle-east/..." target="_blank">https://www.reuters.com/world/middle-east/...</a></li>
-                                <li class="p-2 rounded bg-black/20"><a href="https://www.bbc.com/arabic/middleeast-..." target="_blank">https://www.bbc.com/arabic/middleeast-...</a></li>
-                                <li class="p-2 rounded bg-black/20"><a href="https://www.france24.com/ar/middle-east/..." target="_blank">https://www.france24.com/ar/middle-east/...</a></li>
-                                <li class="p-2 rounded bg-black/20"><a href="https://www.syria.tv/..." target="_blank">https://www.syria.tv/...</a></li>
+                                <li class="p-2 rounded bg-black/20"><a href="https://www.alaraby.co.uk/entertainment_media/..." target="_blank">https://www.alaraby.co.uk/entertainment_media/...</a></li>
+                                <li class="p-2 rounded bg-black/20"><a href="https://ar.wikipedia.org/wiki/..." target="_blank">https://ar.wikipedia.org/wiki/...</a></li>
+                                <li class="p-2 rounded bg-black/20"><a href="https://www.aljazeera.net/encyclopedia/2021/10/27/..." target="_blank">https://www.aljazeera.net/encyclopedia/2021/10/27/...</a></li>
                             </ul>
                         </div>
                     </footer>
@@ -430,32 +132,6 @@
         </article>
     </div>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleBtn = document.getElementById('toggle-sources-btn');
-            const sourcesContainer = document.getElementById('sources-container');
-            const toggleIcon = document.getElementById('toggle-icon');
-            
-            toggleBtn.addEventListener('click', function() {
-                sourcesContainer.classList.toggle('active');
-                toggleIcon.classList.toggle('active');
-                
-                if (sourcesContainer.classList.contains('active')) {
-                    toggleBtn.querySelector('span').textContent = 'إخفاء المصادر';
-                } else {
-                    toggleBtn.querySelector('span').textContent = 'عرض المصادر';
-                }
-            });
-            
-            // Share buttons functionality
-            const pageUrl = encodeURIComponent(window.location.href);
-            const pageTitle = encodeURIComponent(document.title);
-            
-            document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-            document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-            document.getElementById('share-telegram').href = `https://t.me/share/url?url=${pageUrl}&text=${pageTitle}`;
-            document.getElementById('share-linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}`;
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
