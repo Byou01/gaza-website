@@ -8,8 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -27,9 +26,6 @@
             background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
-            /* ==== تحسين الأداء ====
-               تم حذف 'background-attachment: fixed;' لأنه يسبب بطء في التمرير.
-            */
             z-index: -2;
         }
         .background-container::after {
@@ -63,6 +59,51 @@
         .nav-link:hover, .nav-link.active {
             color: #ffffff;
         }
+        
+        /* ==== تحسينات الهيدر للجوال === */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+            padding: 1rem 0;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        .mobile-menu .nav-link {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .mobile-menu .nav-link:last-child {
+            border-bottom: none;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            /* تحسينات إضافية للهيدر على الجوال */
+            header nav {
+                padding: 1rem;
+            }
+            .nav-link::after {
+                display: none;
+            }
+        }
 
         /* ==== تحسين الأداء: جعل الحركات أسرع وأكثر سلاسة ==== */
         @keyframes fadeInUp {
@@ -75,10 +116,10 @@
 
         .article-card {
             background-color: rgba(17, 24, 39, 0.65);
-            backdrop-filter: blur(10px); /* تقليل البلور قليلاً لتحسين الأداء */
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* جعل الانتقالات أسرع */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
         }
         .article-card:hover {
@@ -99,19 +140,53 @@
             font-size: 0.8rem;
             font-weight: 700;
         }
+        
+        /* تحسينات للبطاقات على الجوال */
+        @media (max-width: 768px) {
+            .article-card {
+                margin-bottom: 1.5rem;
+            }
+            .article-card .bg-cover {
+                height: 200px;
+            }
+            .article-card > div {
+                padding: 1.5rem;
+            }
+            .text-5xl {
+                font-size: 2.25rem;
+            }
+            .text-6xl {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-black">
     <div class="background-container">
-        <!-- Header -->
+        <!-- Header متجاوب مع الجوال -->
         <header class="bg-black/20 backdrop-blur-sm sticky top-0 z-50 border-b border-white/10">
             <nav class="container max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
                 <a href="index.html" class="text-xl font-extrabold text-white">موقع ياسين</a>
-                <div class="flex items-center space-x-8 space-x-reverse">
-                    <a href="index.html" class="nav-link">الرئيسية</a>
-                    <a href="analyses.html" class="nav-link active">التحليلات</a>
+                
+                <div class="flex items-center">
+                    <!-- القائمة الأصلية (للأجهزة الكبيرة) -->
+                    <div class="desktop-nav flex items-center space-x-8 space-x-reverse">
+                        <a href="index.html" class="nav-link">الرئيسية</a>
+                        <a href="analyses.html" class="nav-link active">التحليلات</a>
+                    </div>
+                    
+                    <!-- زر القائمة للجوال -->
+                    <button class="mobile-menu-btn text-white ml-4">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
                 </div>
             </nav>
+            
+            <!-- قائمة الجوال المنسدلة -->
+            <div class="mobile-menu">
+                <a href="index.html" class="nav-link">الرئيسية</a>
+                <a href="analyses.html" class="nav-link active">التحليلات</a>
+            </div>
         </header>
 
         <!-- Main Content -->
@@ -127,14 +202,12 @@
                     
                     <!-- Gaza Analysis Card -->
                     <a href="gaza.html" class="article-card block group">
-                        <!-- ==== تحسين الأداء: إضافة loading="lazy" للصورة ==== -->
                         <div class="h-56 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1586910582859-59846d9b4b45?q=80&w=2070&auto=format&fit=crop')" loading="lazy"></div>
                         <div class="p-6 flex flex-col justify-between h-56">
                             <div>
                                 <span class="tag bg-emerald-500 text-white">تحليل غزة</span>
                                 <h3 class="text-2xl font-bold my-2 group-hover:text-emerald-300 transition-colors">المساعدات لغزة: تحديات البحر والبر</h3>
                             </div>
-                            <!-- ==== إضافة عدّاد التعليقات ==== -->
                             <div class="text-xs text-gray-400 border-t border-white/10 pt-3 flex justify-between items-center mt-2">
                                 <span>٢١ يونيو ٢٠٢٥</span>
                                 <a href="gaza.html#disqus_thread" class="hover:text-white transition">
@@ -153,8 +226,7 @@
                                 <span class="tag bg-rose-500 text-white">الصراع الإقليمي</span>
                                 <h3 class="text-2xl font-bold my-2 group-hover:text-rose-400 transition-colors">ايران واسرائيل</h3>
                             </div>
-                             <!-- ==== إضافة عدّاد التعليقات ==== -->
-                            <div class="text-xs text-gray-400 border-t border-white/10 pt-3 flex justify-between items-center mt-2">
+                             <div class="text-xs text-gray-400 border-t border-white/10 pt-3 flex justify-between items-center mt-2">
                                 <span>١٨ يونيو ٢٠٢٥</span>
                                 <a href="iran-israel.html#disqus_thread" class="hover:text-white transition">
                                     <i class="fas fa-comments ml-1"></i>
@@ -179,5 +251,27 @@
     
     <!-- ==== إضافة عدّاد التعليقات: السكريبت الخاص بـ Disqus ==== -->
     <script id="dsq-count-scr" src="//mwq-ysyn.disqus.com/count.js" async></script>
+    
+    <script>
+        // دالة إعداد قائمة الجوال
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            if (menuBtn) {
+                menuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('active');
+                });
+
+                // إغلاق القائمة عند النقر خارجها
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                        mobileMenu.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
