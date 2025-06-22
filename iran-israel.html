@@ -16,15 +16,27 @@
 <body class="bg-black">
     <div class="background-container">
         <!-- Header Navigation -->
-        <header class="bg-black/20 backdrop-blur-sm sticky top-0 z-50 border-b border-white/10">
-            <nav class="container max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-                <a href="index.html" class="text-xl font-extrabold text-white">موقع ياسين</a>
-                <div class="flex items-center space-x-8 space-x-reverse">
-                    <a href="index.html" class="nav-link">الرئيسية</a>
-                    <a href="analyses.html" class="nav-link active">التحليلات</a>
-                </div>
-            </nav>
-        </header>
+       <header class="bg-black/20 backdrop-blur-sm sticky top-0 z-50 border-b border-white/10">
+    <nav class="container max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-xl font-extrabold text-white">موقع ياسين</a>
+        
+        <div class="flex items-center">
+            <div class="desktop-nav flex items-center space-x-8 space-x-reverse">
+                <a href="index.html" class="nav-link">الرئيسية</a>
+                <a href="analyses.html" class="nav-link active">التحليلات</a>
+            </div>
+            
+            <button class="mobile-menu-btn text-white ml-4">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="analyses.html" class="nav-link active">التحليلات</a>
+    </div>
+</header>
 
         <!-- Article Content -->
         <article class="py-12 md:py-20">
