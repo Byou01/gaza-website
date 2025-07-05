@@ -78,22 +78,24 @@
         .prose-custom strong {
             color: #ffffff;
         }
-        /* --- New Album Link Style --- */
-        .album-link {
-            color: #93c5fd; /* Light blue color */
-            font-weight: 700;
-            text-decoration: underline;
-            text-decoration-color: rgba(96, 165, 250, 0.5);
-            text-underline-offset: 4px;
-            transition: all 0.2s ease-in-out;
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
-        .album-link:hover {
-            color: #ffffff;
-            text-decoration-color: #60a5fa;
+        .mobile-menu.active {
+            display: flex; /* Shown when active */
         }
-        
-        .mobile-menu { display: none; }
-        .mobile-menu.active { display: flex; }
     </style>
 </head>
 <body class="bg-black">
@@ -112,10 +114,10 @@
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </nav>
-            <div class="mobile-menu flex-col items-center gap-4 p-4">
+            <div class="mobile-menu">
                 <a href="index.html" class="nav-link active">الرئيسية</a>
                 <a href="analyses.html" class="nav-link">التحليلات</a>
-                 <a href="album.html" class="nav-link">الألبوم</a>
+                <a href="album.html" class="nav-link">الألبوم</a>
             </div>
         </header>
 
@@ -126,10 +128,21 @@
             <div class="max-w-2xl mx-auto prose-custom">
                 <p>هنا انا اعبر عن رأيي في القضايا الي تجذب اهتمامي او الي انا ملزم اتكلم عنها من ناحية ديني او معتقداتي.</p>
                 <p><strong>هدفي:</strong> اشارك رأيي في القضايا المتداولة.</p>
-                <p><strong>اهتماماتي:</strong> احب التصوير وان شاء الله بنزل هنا <a href="album.html" class="album-link">ألبوم ياسين</a>.</p>
+                <p><strong>اهتماماتي:</strong> احب التصوير وان شاء الله بنزل هنا <a href="album.html" class="text-blue-400 hover:underline">ألبوم ياسين</a>.</p>
             </div>
             
-            <!-- --- New Button Style --- -->
+            <div class="mt-8 flex justify-center">
+                <a href="https://t.me/yassinps" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full shadow transition-colors"
+                   title="تواصل عبر تيليجرام (للعمل فقط)">
+                    <i class="fab fa-telegram-plane text-xl"></i>
+                    <span>Telegram</span>
+                </a>
+            </div>
+            <div class="flex justify-center mt-2">
+                <span class="text-white text-base md:text-lg">للعمل فقط</span>
+            </div>
+
             <div class="mt-12">
                  <a href="analyses.html" class="border-2 border-white/50 text-white font-bold py-3 px-8 rounded-full hover:bg-white/10 hover:border-white transition-all duration-300 text-lg">
                     اكتشف التحليلات
