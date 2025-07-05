@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ألبوم ياسين</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- General Styles --- */
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: #ffffff;
+            background-color: #000000;
+        }
+        /* --- Background Image --- */
+        .album-background {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('images/album-bg.webp'); /* <-- ضع صورتك هنا */
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        /* --- Header Styles --- */
+        .nav-link {
+            position: relative; font-weight: 600; color: #e5e7eb; transition: color 0.3s; padding-bottom: 8px;
+        }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 3px; bottom: 0; right: 0;
+            background-color: #60a5fa; border-radius: 99px; transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link:hover, .nav-link.active { color: #ffffff; }
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: flex; }
+
+        /* --- Masonry Gallery Styles --- */
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+        .masonry-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 1.5rem;
+            break-inside: avoid;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .masonry-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .masonry-item img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Responsive Masonry --- */
+        @media (max-width: 1024px) {
+            .masonry-grid { column-count: 2; }
+        }
+        @media (max-width: 768px) {
+            .masonry-grid { column-count: 1; }
+        }
+
+        /* --- Modal (Lightbox) Styles --- */
+        .modal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0,0,0,0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        .modal-content img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 0.5rem;
+        }
+        .modal-close, .modal-nav {
+            position: absolute;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        .modal-close:hover, .modal-nav:hover {
+            background: rgba(0,0,0,0.6);
+        }
+        .modal-close { top: 20px; right: 20px; }
+        .modal-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+        .modal-next { right: 20px; top: 50%; transform: translateY(-50%); }
+    </style>
+</head>
+<body class="bg-black">
+    <div class="album-background"></div>
+    
+    <header class="bg-black/20 backdrop-blur-sm sticky top-0 z-50 border-b border-white/10">
+        <nav class="container max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-extrabold text-white">موقع ياسين</a>
+            <div class="hidden md:flex items-center space-x-8 space-x-reverse">
+                <a href="index.html" class="nav-link">الرئيسية</a>
+                <a href="analyses.html" class="nav-link">التحليلات</a>
+                <a href="album.html" class="nav-link active">الألبوم</a>
+            </div>
+            <button class="md:hidden mobile-menu-btn text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu flex-col items-center gap-4 p-4">
+            <a href="index.html" class="nav-link">الرئيسية</a>
+            <a href="analyses.html" class="nav-link">التحليلات</a>
+            <a href="album.html" class="nav-link active">الألبوم</a>
+        </div>
+    </header>
+
+    <main class="container max-w-7xl mx-auto p-4 md:p-8 mt-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white">ألبوم ياسين</h1>
+        </header>
+
+        <!-- Masonry Grid -->
+        <div class="masonry-grid">
+            <!-- The placeholder images have been updated -->
+            <div class="masonry-item" style="animation-delay: 0.1s;"><img src="https://placehold.co/600x800/222/FFF?text=قريبا" alt="صورة قادمة"></div>
+            <div class="masonry-item" style="animation-delay: 0.2s;"><img src="https://placehold.co/800x600/333/FFF?text=قريبا" alt="صورة قادمة"></div>
+            <div class="masonry-item" style="animation-delay: 0.3s;"><img src="https://placehold.co/600x600/444/FFF?text=قريبا" alt="صورة قادمة"></div>
+            <div class="masonry-item" style="animation-delay: 0.4s;"><img src="https://placehold.co/600x900/555/FFF?text=قريبا" alt="صورة قادمة"></div>
+            <div class="masonry-item" style="animation-delay: 0.5s;"><img src="https://placehold.co/700x500/666/FFF?text=قريبا" alt="صورة قادمة"></div>
+            <div class="masonry-item" style="animation-delay: 0.6s;"><img src="https://placehold.co/600x700/777/FFF?text=قريبا" alt="صورة قادمة"></div>
+        </div>
+    </main>
+
+    <!-- Modal Lightbox -->
+    <div id="modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <span class="modal-nav modal-prev">&#10094;</span>
+        <div class="modal-content">
+            <img id="modal-img" src="" alt="صورة مكبرة">
+        </div>
+        <span class="modal-nav modal-next">&#10095;</span>
+    </div>
+
+    <script>
+        // --- Mobile Menu ---
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // --- Modal Lightbox Logic ---
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const closeBtn = document.querySelector('.modal-close');
+        const prevBtn = document.querySelector('.modal-prev');
+        const nextBtn = document.querySelector('.modal-next');
+
+        const galleryImages = document.querySelectorAll('.masonry-grid img');
+        let currentImageIndex;
+
+        function openModal(index) {
+            currentImageIndex = index;
+            modalImg.src = galleryImages[index].src;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : galleryImages.length - 1;
+            openModal(currentImageIndex);
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex < galleryImages.length - 1) ? currentImageIndex + 1 : 0;
+            openModal(currentImageIndex);
+        }
+
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', () => openModal(index));
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        prevBtn.addEventListener('click', showPrevImage);
+        nextBtn.addEventListener('click', showNextImage);
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('active')) {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowLeft') showPrevImage();
+                if (e.key === 'ArrowRight') showNextImage();
+            }
+        });
+    </script>
+</body>
+</html>
