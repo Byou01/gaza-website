@@ -21,7 +21,7 @@
         .album-background {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('images/album-bg.webp'); /* <-- ضع صورتك هنا */
+            background-image: url('images/album-bg.webp');
             background-size: cover;
             background-position: center;
             z-index: -1;
@@ -39,11 +39,24 @@
         .mobile-menu { display: none; }
         .mobile-menu.active { display: flex; }
 
-        /* --- Masonry Gallery Styles --- */
+        /* --- Masonry Gallery Styles (Improved for Responsiveness) --- */
         .masonry-grid {
-            column-count: 3;
+            column-count: 1; /* Default for mobile */
             column-gap: 1.5rem;
         }
+        /* Tablet size */
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        /* Desktop size */
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+
         .masonry-item {
             display: inline-block;
             width: 100%;
@@ -72,14 +85,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-
-        /* --- Responsive Masonry --- */
-        @media (max-width: 1024px) {
-            .masonry-grid { column-count: 2; }
-        }
-        @media (max-width: 768px) {
-            .masonry-grid { column-count: 1; }
         }
 
         /* --- Modal (Lightbox) Styles --- */
@@ -167,13 +172,13 @@
 
         <!-- Masonry Grid -->
         <div class="masonry-grid">
-            <!-- The placeholder images have been updated -->
-            <div class="masonry-item" style="animation-delay: 0.1s;"><img src="https://placehold.co/600x800/222/FFF?text=قريبا" alt="صورة قادمة"></div>
-            <div class="masonry-item" style="animation-delay: 0.2s;"><img src="https://placehold.co/800x600/333/FFF?text=قريبا" alt="صورة قادمة"></div>
-            <div class="masonry-item" style="animation-delay: 0.3s;"><img src="https://placehold.co/600x600/444/FFF?text=قريبا" alt="صورة قادمة"></div>
-            <div class="masonry-item" style="animation-delay: 0.4s;"><img src="https://placehold.co/600x900/555/FFF?text=قريبا" alt="صورة قادمة"></div>
-            <div class="masonry-item" style="animation-delay: 0.5s;"><img src="https://placehold.co/700x500/666/FFF?text=قريبا" alt="صورة قادمة"></div>
-            <div class="masonry-item" style="animation-delay: 0.6s;"><img src="https://placehold.co/600x700/777/FFF?text=قريبا" alt="صورة قادمة"></div>
+            <!-- The placeholder images have been updated to be empty -->
+            <div class="masonry-item" style="animation-delay: 0.1s;"><img src="https://placehold.co/600x800/222/FFF?text=" alt="صورة قادمة"></div>
+            <div class="masonry-item" style="animation-delay: 0.2s;"><img src="https://placehold.co/800x600/333/FFF?text=" alt="صورة قادمة"></div>
+            <div class="masonry-item" style="animation-delay: 0.3s;"><img src="https://placehold.co/600x600/444/FFF?text=" alt="صورة قادمة"></div>
+            <div class="masonry-item" style="animation-delay: 0.4s;"><img src="https://placehold.co/600x900/555/FFF?text=" alt="صورة قادمة"></div>
+            <div class="masonry-item" style="animation-delay: 0.5s;"><img src="https://placehold.co/700x500/666/FFF?text=" alt="صورة قادمة"></div>
+            <div class="masonry-item" style="animation-delay: 0.6s;"><img src="https://placehold.co/600x700/777/FFF?text=" alt="صورة قادمة"></div>
         </div>
     </main>
 
